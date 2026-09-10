@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas Clave - Acontecimientos del Mes Patrio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --verde-patrio: #006847;
+            --verde-hover: #004d34;
+            --rojo-patrio: #CE1126;
+            --rojo-hover: #a30d1e;
+            --blanco: #FFFFFF;
+            --gris-fondo: #F8F9FA;
+            --texto-oscuro: #2B2B2B;
+            --texto-suave: #666666;
+            --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--gris-fondo);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .liston-patrio {
+            height: 6px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--verde-patrio) 33.3%, var(--blanco) 33.3%, var(--blanco) 66.6%, var(--rojo-patrio) 66.6%);
+        }
+
+        header {
+            background-color: var(--blanco);
+            box-shadow: var(--sombra-suave);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--verde-patrio);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span { color: var(--rojo-patrio); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--texto-oscuro);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--verde-patrio);
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--texto-oscuro);
+        }
+
+        .subtitulo-seccion {
+            text-align: center;
+            color: var(--rojo-patrio);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--verde-patrio);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--blanco);
+            border: 4px solid var(--rojo-patrio);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -10px; }
+
+        .timeline-content {
+            padding: 20px 25px;
+            background-color: var(--blanco);
+            position: relative;
+            border-radius: 8px;
+            box-shadow: var(--sombra-suave);
+            border-top: 4px solid var(--verde-patrio);
+        }
+
+        .timeline-fecha {
+            display: inline-block;
+            background-color: var(--rojo-patrio);
+            color: var(--blanco);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h3 {
+            color: var(--verde-patrio);
+            margin-bottom: 8px;
+        }
+
+        .nav-paginacion {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-pag {
+            background-color: var(--verde-patrio);
+            color: var(--blanco);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s;
+        }
+
+        .btn-pag:hover {
+            background-color: var(--verde-hover);
+        }
+
+        footer {
+            background-color: var(--blanco);
+            border-top: 1px solid #E0E0E0;
+            padding-top: 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: var(--texto-suave);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .timeline::after { left: 31px; }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item::after { left: 21px; }
+            .right { left: 0%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="liston-patrio"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                🇲🇽 Septiembre <span>Patrio</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="linea_tiempo.html" class="active">Fechas Clave</a></li>
+                <li><a href="personajes.html">Personajes</a></li>
+                <li><a href="mitos.html">Mitos y Datos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="linea-tiempo">
+        <h2 class="titulo-seccion">Línea de Tiempo Histórica</h2>
+        <p class="subtitulo-seccion">Efemérides más relevantes de Septiembre</p>
+
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <span class="timeline-fecha">13 de Septiembre (1847)</span>
+                    <h3>Gesta Heroica de Chapultepec</h3>
+                    <p>Defensa del Castillo de Chapultepec por los Niños Héroes frente a la invasión del ejército estadounidense.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <span class="timeline-fecha">15 de Septiembre</span>
+                    <h3>La Noche del Grito</h3>
+                    <p>Conmemoración tradicional del llamado a las armas. Familias y ciudadanos se reúnen en las plazas públicas para celebrar el orgullo nacional.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <span class="timeline-fecha">16 de Septiembre (1810)</span>
+                    <h3>Inicio de la Independencia</h3>
+                    <p>El cura Miguel Hidalgo y Costilla da el histórico "Grito de Dolores", marcando el comienzo de la lucha por la libertad mexicana.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <span class="timeline-fecha">27 de Septiembre (1821)</span>
+                    <h3>Consumación de la Independencia</h3>
+                    <p>El Ejército Trigarante, encabezado por Agustín de Iturbide y Vicente Guerrero, entra triunfante a la Ciudad de México tras 11 años de lucha.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <span class="timeline-fecha">30 de Septiembre (1765)</span>
+                    <h3>Natalicio de José María Morelos</h3>
+                    <p>Nacimiento del "Siervo de la Nación", líder militar y político clave que redactó los "Sentimientos de la Nación".</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-paginacion">
+            <a href="index.html" class="btn-pag">← Inicio</a>
+            <a href="personajes.html" class="btn-pag">Ver Personajes →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p>
+        </div>
+        <div class="liston-patrio"></div>
+    </footer>
+</body>
+</html>
