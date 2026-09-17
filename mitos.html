@@ -1,348 +1,325 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <!-- Metadatos de la página -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitos y Datos - Acontecimientos del Mes Patrio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<!DOCTYPE html> <!-- Especifica que el documento cumple con la norma HTML5 -->
+<html lang="es"> <!-- Inicia la raíz HTML configurando el idioma a español -->
+<head> <!-- Abre el contenedor para metadatos, estilo e importación de recursos -->
+    <meta charset="UTF-8"> <!-- Configura la codificación de caracteres a UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura el diseño responsive para diferentes tamaños de pantallas -->
+    <title>Mitos y Datos - Acontecimientos del Mes Patrio</title> <!-- Título visible en la pestaña del navegador -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> <!-- Carga las fuentes tipográficas Montserrat y Open Sans desde Google Fonts -->
     
-    <style>
-        /* Configuración de paleta de colores patrios */
-        :root {
-            --verde-patrio: #006847;
-            --verde-hover: #004d34;
-            --rojo-patrio: #CE1126;
-            --rojo-hover: #a30d1e;
-            --blanco: #FFFFFF;
-            --gris-fondo: #F8F9FA;
-            --texto-oscuro: #2B2B2B;
-            --texto-suave: #666666;
-            --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
+    <style> /* Inicio de los estilos CSS dentro de la etiqueta style */
+        :root { /* Selector de variables raíz CSS globales */
+            --verde-patrio: #006847; /* Variable de color verde tradicional */
+            --verde-hover: #004d34; /* Variable para variante verde oscuro interactiva */
+            --rojo-patrio: #CE1126; /* Variable de color rojo tradicional */
+            --rojo-hover: #a30d1e; /* Variable para variante rojo oscuro interactiva */
+            --blanco: #FFFFFF; /* Variable para el color blanco */
+            --gris-fondo: #F8F9FA; /* Variable para el fondo gris neutro */
+            --texto-oscuro: #2B2B2B; /* Variable para texto primario oscuro */
+            --texto-suave: #666666; /* Variable para texto secundario atenuado */
+            --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08); /* Variable para la sombra difusa */
+        } /* Cierra el bloque :root */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { /* Selector universal para reseteo básico de elementos */
+            margin: 0; /* Remueve márgenes por defecto */
+            padding: 0; /* Remueve rellenos por defecto */
+            box-sizing: border-box; /* Establece el modelo de cajas a border-box */
+        } /* Cierra el reseteo universal */
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--gris-fondo);
-            color: var(--texto-oscuro);
-            line-height: 1.6;
-        }
+        body { /* Estilos aplicados al cuerpo del documento */
+            font-family: 'Open Sans', sans-serif; /* Asigna la fuente sans-serif Open Sans */
+            background-color: var(--gris-fondo); /* Aplica el color gris suave al fondo */
+            color: var(--texto-oscuro); /* Asigna el color de texto general */
+            line-height: 1.6; /* Establece un espaciado entre líneas legible */
+        } /* Cierra estilos de body */
 
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
+        h1, h2, h3 { /* Estilos compartidos para etiquetas de encabezado */
+            font-family: 'Montserrat', sans-serif; /* Aplica la fuente tipográfica Montserrat */
+            font-weight: 700; /* Define el peso tipográfico en negrita */
+        } /* Cierra estilos de encabezados */
 
-        .liston-patrio {
-            height: 6px;
-            width: 100%;
-            background: linear-gradient(90deg, var(--verde-patrio) 33.3%, var(--blanco) 33.3%, var(--blanco) 66.6%, var(--rojo-patrio) 66.6%);
-        }
+        .liston-patrio { /* Barra decorativa con los colores patrios */
+            height: 6px; /* Define una altura de 6 píxeles */
+            width: 100%; /* Ocupa la totalidad del ancho disponible */
+            background: linear-gradient(90deg, var(--verde-patrio) 33.3%, var(--blanco) 33.3%, var(--blanco) 66.6%, var(--rojo-patrio) 66.6%); /* Degradado tricolor representando la bandera */
+        } /* Cierra la clase liston-patrio */
 
-        header {
-            background-color: var(--blanco);
-            box-shadow: var(--sombra-suave);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        header { /* Estilo de la barra fija superior */
+            background-color: var(--blanco); /* Fondo blanco */
+            box-shadow: var(--sombra-suave); /* Sombreado suave por debajo del encabezado */
+            position: sticky; /* Mantiene la barra pegada al hacer scroll */
+            top: 0; /* Alineada a la parte superior de la ventana */
+            z-index: 1000; /* Asegura que permanezca en la capa superior */
+        } /* Cierra header */
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
+        nav { /* Contenedor flex para el logotipo y los hipervínculos */
+            max-width: 1200px; /* Limita el ancho máximo a 1200px */
+            margin: 0 auto; /* Centra el contenedor horizontalmente */
+            display: flex; /* Utiliza el diseño en caja flexible (Flexbox) */
+            justify-content: space-between; /* Agrupa extremos opuestos */
+            align-items: center; /* Alinea verticalmente los elementos al centro */
+            padding: 1rem 2rem; /* Relleno superior/inferior de 1rem y lateral de 2rem */
+        } /* Cierra nav */
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--verde-patrio);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .logo { /* Formato para el nombre del portal */
+            font-size: 1.4rem; /* Tamaño de fuente del logo */
+            font-weight: 800; /* Tipografía extra negrita */
+            color: var(--verde-patrio); /* Asigna el color verde patrio */
+            text-transform: uppercase; /* Convierte los caracteres a mayúsculas */
+            letter-spacing: 1px; /* Añade espacio entre letras */
+            display: flex; /* Flexible para organizar ícono y texto */
+            align-items: center; /* Centrado vertical */
+            gap: 10px; /* Distancia entre el ícono de bandera y el texto */
+        } /* Cierra la clase logo */
 
-        .logo span { color: var(--rojo-patrio); }
+        .logo span { color: var(--rojo-patrio); } /* Pinta de rojo la palabra encerrada en span */
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
+        .nav-links { /* Formato para la lista de navegación */
+            display: flex; /* Organiza la lista horizontalmente */
+            list-style: none; /* Quita los puntos por defecto */
+            gap: 1.5rem; /* Separación de 1.5rem entre enlaces */
+        } /* Cierra nav-links */
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--texto-oscuro);
-            font-weight: 600;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
+        .nav-links a { /* Estilo individual de los enlaces */
+            text-decoration: none; /* Remueve la línea por debajo del texto */
+            color: var(--texto-oscuro); /* Color predeterminado */
+            font-weight: 600; /* Grosor de letra seminegrita */
+            transition: color 0.3s ease; /* Efecto animado suave para la propiedad color */
+            font-size: 0.95rem; /* Tamaño de fuente de 0.95rem */
+        } /* Cierra nav-links a */
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--verde-patrio);
-        }
+        .nav-links a:hover, .nav-links a.active { /* Interacción de puntero y estado activo */
+            color: var(--verde-patrio); /* Aplica el verde patrio al resaltar */
+        } /* Cierra los estados hover y active */
 
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        section { /* Estilos aplicados al contenedor de sección */
+            padding: 4rem 2rem; /* Relleno superior/inferior de 4rem y lateral de 2rem */
+            max-width: 1200px; /* Ancho máximo estándar */
+            margin: 0 auto; /* Centrado en pantalla */
+        } /* Cierra la etiqueta section */
 
-        .titulo-seccion {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--texto-oscuro);
-        }
+        .titulo-seccion { /* Formato para el título de la página */
+            text-align: center; /* Alineación del texto al centro */
+            font-size: 2.2rem; /* Tamaño de tipografía de 2.2rem */
+            margin-bottom: 0.5rem; /* Margen inferior estrecho */
+            color: var(--texto-oscuro); /* Color de texto gris oscuro */
+        } /* Cierra titulo-seccion */
 
-        .subtitulo-seccion {
-            text-align: center;
-            color: var(--rojo-patrio);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-bottom: 3rem;
-        }
+        .subtitulo-seccion { /* Formato para el subtítulo o descripción corta */
+            text-align: center; /* Alineación centrada */
+            color: var(--rojo-patrio); /* Color rojo patrio */
+            font-weight: 600; /* Fuente seminegrita */
+            text-transform: uppercase; /* Convertir a letras mayúsculas */
+            letter-spacing: 2px; /* Espaciado entre caracteres de 2px */
+            font-size: 0.9rem; /* Tamaño de texto de 0.9rem */
+            margin-bottom: 3rem; /* Margen inferior de 3rem */
+        } /* Cierra subtitulo-seccion */
 
-        /* Estilos específicos para la sección del Acordeón interactivo */
-        .accordion-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .accordion-container { /* Contenedor centrado para la lista desplegable acordeón */
+            max-width: 800px; /* Ancho máximo de 800px */
+            margin: 0 auto; /* Centrado horizontal automático */
+        } /* Cierra accordion-container */
 
-        .accordion-item {
-            background-color: var(--blanco);
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            box-shadow: var(--sombra-suave);
-            border-left: 5px solid var(--verde-patrio);
-            overflow: hidden;
-        }
+        .accordion-item { /* Estilos de cada bloque del acordeón */
+            background-color: var(--blanco); /* Fondo de la tarjeta en blanco */
+            margin-bottom: 1rem; /* Margen inferior entre preguntas */
+            border-radius: 8px; /* Esquinas redondeadas con 8px */
+            box-shadow: var(--sombra-suave); /* Sombreado periférico ligero */
+            border-left: 5px solid var(--verde-patrio); /* Borde lateral izquierdo de acento verde */
+            overflow: hidden; /* Oculta contenidos que rebasen los bordes */
+        } /* Cierra accordion-item */
 
-        /* Encabezado/Botón del acordeón */
-        .accordion-header {
-            width: 100%;
-            padding: 1.2rem 1.5rem;
-            background: none;
-            border: none;
-            text-align: left;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--texto-oscuro);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
+        .accordion-header { /* Botón principal clickable de cada elemento del acordeón */
+            width: 100%; /* Cubre el 100% de la anchura de la tarjeta */
+            padding: 1.2rem 1.5rem; /* Relleno interior */
+            background: none; /* Elimina fondos predeterminados del botón */
+            border: none; /* Elimina bordes por defecto */
+            text-align: left; /* Alinea el texto de la pregunta a la izquierda */
+            font-size: 1.1rem; /* Tamaño de letra de 1.1rem */
+            font-weight: 700; /* Fuente en negrita */
+            color: var(--texto-oscuro); /* Color de texto oscuro */
+            cursor: pointer; /* Cambia el cursor a la mano indicando que es interactivo */
+            display: flex; /* Flexbox para colocar la pregunta y el icono a los extremos */
+            justify-content: space-between; /* Separa texto e icono */
+            align-items: center; /* Centra los elementos verticalmente */
+            transition: background-color 0.3s ease; /* Transición suave de color de fondo al pasar el cursor */
+        } /* Cierra accordion-header */
 
-        .accordion-header:hover {
-            background-color: rgba(0, 104, 71, 0.03);
-        }
+        .accordion-header:hover { /* Efecto al pasar el cursor sobre el botón del acordeón */
+            background-color: rgba(0, 104, 71, 0.03); /* Ligero tinte verdoso al pasar el puntero */
+        } /* Cierra accordion-header:hover */
 
-        .accordion-icon {
-            font-size: 1.2rem;
-            color: var(--rojo-patrio);
-            transition: transform 0.3s ease;
-        }
+        .accordion-icon { /* Estilos del símbolo indicativo de despliegue (+ / x) */
+            font-size: 1.2rem; /* Tamaño de letra del ícono */
+            color: var(--rojo-patrio); /* Color rojo patrio para el ícono */
+            transition: transform 0.3s ease; /* Animación fluida de rotación */
+        } /* Cierra accordion-icon */
 
-        /* Contenido oculto desplegable */
-        .accordion-content {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background-color: #FAFAFA;
-            color: var(--texto-suave);
-        }
+        .accordion-content { /* Contenedor oculto con el texto de la respuesta */
+            padding: 0 1.5rem; /* Relleno lateral únicamente cuando está cerrado */
+            max-height: 0; /* Oculta el contenido reduciendo la altura máxima a cero */
+            overflow: hidden; /* Oculta cualquier texto fuera de la altura */
+            transition: max-height 0.3s ease, padding 0.3s ease; /* Transición para desplegar suavemente */
+            background-color: #FAFAFA; /* Fondo de la respuesta ligeramente más gris */
+            color: var(--texto-suave); /* Color del texto secundario */
+        } /* Cierra accordion-content */
 
-        /* Estado activo cuando el acordeón se abre */
-        .accordion-item.active .accordion-content {
-            padding: 1.2rem 1.5rem;
-            max-height: 300px;
-            border-top: 1px solid #EEEEEE;
-        }
+        .accordion-item.active .accordion-content { /* Estilos aplicados cuando el acordeón está desplegado (.active) */
+            padding: 1.2rem 1.5rem; /* Asigna relleno interno completo al abrir */
+            max-height: 300px; /* Expande la altura máxima a 300px para mostrar el texto */
+            border-top: 1px solid #EEEEEE; /* Añade una línea superior tenue */
+        } /* Cierra estado active de accordion-content */
 
-        .accordion-item.active .accordion-icon {
-            transform: rotate(45deg);
-        }
+        .accordion-item.active .accordion-icon { /* Rotación del icono en estado activo */
+            transform: rotate(45deg); /* Rota el icono + a 45 grados transformándolo en una x */
+        } /* Cierra rotación de accordion-icon */
 
-        /* Etiquetas MITO / DATO */
-        .badge-mito {
-            background-color: var(--rojo-patrio);
-            color: var(--blanco);
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
+        .badge-mito { /* Etiqueta o insignia indicadora */
+            background-color: var(--rojo-patrio); /* Fondo rojo patrio */
+            color: var(--blanco); /* Texto en color blanco */
+            font-size: 0.75rem; /* Tamaño de letra pequeño */
+            padding: 2px 8px; /* Relleno interno pequeño */
+            border-radius: 4px; /* Bordes suavemente redondeados */
+            margin-right: 8px; /* Espacio a la derecha de la etiqueta */
+            vertical-align: middle; /* Alineación vertical al medio con respecto al texto adyacente */
+        } /* Cierra badge-mito */
 
-        /* Navegación entre páginas */
-        .nav-paginacion {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .nav-paginacion { /* Estilos para el bloque de botones de paginación */
+            display: flex; /* Organización con flexbox horizontal */
+            justify-content: space-between; /* Separa los botones a cada extremo */
+            margin-top: 3rem; /* Separación superior de 3rem */
+            max-width: 800px; /* Ancho máximo coincidente con el acordeón */
+            margin-left: auto; /* Centrado automático a la izquierda */
+            margin-right: auto; /* Centrado automático a la derecha */
+        } /* Cierra nav-paginacion */
 
-        .btn-pag {
-            background-color: var(--verde-patrio);
-            color: var(--blanco);
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background 0.3s;
-        }
+        .btn-pag { /* Estilos para los hipervínculos de paginación */
+            background-color: var(--verde-patrio); /* Fondo en verde patrio */
+            color: var(--blanco); /* Texto en color blanco */
+            padding: 0.8rem 1.5rem; /* Relleno interno */
+            border-radius: 30px; /* Bordes ovalados tipo píldora */
+            text-decoration: none; /* Elimina la línea del enlace */
+            font-weight: 700; /* Texto en formato negrita */
+            transition: background 0.3s; /* Transición de color al pasar el cursor */
+        } /* Cierra btn-pag */
 
-        .btn-pag:hover {
-            background-color: var(--verde-hover);
-        }
+        .btn-pag:hover { /* Estado hover para los botones de paginación */
+            background-color: var(--verde-hover); /* Cambia al tono de verde oscuro */
+        } /* Cierra btn-pag:hover */
 
-        /* Pie de página */
-        footer {
-            background-color: var(--blanco);
-            border-top: 1px solid #E0E0E0;
-            padding-top: 2rem;
-            margin-top: 4rem;
-        }
+        footer { /* Estilos para el pie de página */
+            background-color: var(--blanco); /* Fondo de color blanco */
+            border-top: 1px solid #E0E0E0; /* Línea divisoria en gris claro */
+            padding-top: 2rem; /* Relleno superior */
+            margin-top: 4rem; /* Margen superior respecto al contenido */
+        } /* Cierra el selector footer */
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 2rem 2rem;
-            text-align: center;
-        }
+        .footer-content { /* Contenedor interno del texto del pie de página */
+            max-width: 1200px; /* Ancho máximo idéntico a las demás secciones */
+            margin: 0 auto; /* Centra el contenido en pantalla */
+            padding: 0 2rem 2rem 2rem; /* Relleno lateral e inferior */
+            text-align: center; /* Alinea el texto en el centro */
+        } /* Cierra footer-content */
 
-        .footer-content p {
-            color: var(--texto-suave);
-            font-size: 0.9rem;
-        }
+        .footer-content p { /* Formato del texto dentro del pie de página */
+            color: var(--texto-suave); /* Color gris tenue */
+            font-size: 0.9rem; /* Tamaño de tipografía de 0.9rem */
+        } /* Cierra párrafo footer */
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-        }
-    </style>
-</head>
-<body>
-    <!-- Listón decorativo -->
-    <div class="liston-patrio"></div>
+        @media (max-width: 768px) { /* Adaptación a pantallas estrechas de teléfonos */
+            .nav-links { display: none; } /* Oculta el menú desplegable predeterminado en móviles */
+        } /* Cierra media query */
+    </style> <!-- Cierra el bloque de estilos CSS -->
+</head> <!-- Cierra la etiqueta head -->
+<body> <!-- Inicia la estructura visible del documento HTML -->
+    <div class="liston-patrio"></div> <!-- Muestra la franja tricolor en el borde superior -->
 
-    <!-- Menú de la página -->
-    <header>
-        <nav>
-            <div class="logo">
-                🇲🇽 Septiembre <span>Patrio</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="linea_tiempo.html">Fechas Clave</a></li>
-                <li><a href="personajes.html">Personajes</a></li>
-                <li><a href="mitos.html" class="active">Mitos y Datos</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header> <!-- Barra de encabezado fija -->
+        <nav> <!-- Contenedor del menú navegable -->
+            <div class="logo"> <!-- Logotipo o título de la web -->
+                🇲🇽 Septiembre <span>Patrio</span> <!-- Icono de la bandera con tipografía decorativa -->
+            </div> <!-- Cierra el logo -->
+            <ul class="nav-links"> <!-- Menú con la lista de vínculos -->
+                <li><a href="index.html">Inicio</a></li> <!-- Enlace que dirige a Inicio -->
+                <li><a href="linea_tiempo.html">Fechas Clave</a></li> <!-- Enlace a la línea de tiempo -->
+                <li><a href="personajes.html">Personajes</a></li> <!-- Enlace a personajes -->
+                <li><a href="mitos.html" class="active">Mitos y Datos</a></li> <!-- Enlace activo de Mitos y Datos -->
+            </ul> <!-- Cierra lista de navegación -->
+        </nav> <!-- Cierra la barra nav -->
+    </header> <!-- Cierra el encabezado del sitio -->
 
-    <!-- Sección Mitos y Datos Curiosos con Acordeón -->
-    <section id="mitos">
-        <h2 class="titulo-seccion">Datos Curiosos y Mitos</h2>
-        <p class="subtitulo-seccion">¿Qué tan bien conoces nuestra historia?</p>
+    <section id="mitos"> <!-- Sección contenedora de mitos y datos de la independencia -->
+        <h2 class="titulo-seccion">Datos Curiosos y Mitos</h2> <!-- Título principal de la sección -->
+        <p class="subtitulo-seccion">¿Qué tan bien conoces nuestra historia?</p> <!-- Subtítulo de reflexión -->
 
-        <div class="accordion-container">
-            <!-- Ítem 1: La Campana de Dolores -->
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="badge-mito">MITO</span> ¿Hidalgo tocó la Campana de Dolores?</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>La Realidad:</strong> Miguel Hidalgo no tocó la campana esa madrugada. Quien llamó a misa a los feligreses fue el campanero de la parroquia, José Galván, mientras Hidalgo convocaba a la gente en el atrio.</p>
-                </div>
-            </div>
+        <div class="accordion-container"> <!-- Contenedor del componente interactivo de acordeón -->
+            <div class="accordion-item"> <!-- Ítem 1 del acordeón -->
+                <button class="accordion-header"> <!-- Botón desplegable para la primera pregunta -->
+                    <span><span class="badge-mito">MITO</span> ¿Hidalgo tocó la Campana de Dolores?</span> <!-- Badge e interrogante 1 -->
+                    <span class="accordion-icon">+</span> <!-- Ícono indicativo de despliegue -->
+                </button> <!-- Cierra el botón 1 -->
+                <div class="accordion-content"> <!-- Caja con la respuesta desplegable 1 -->
+                    <p><strong>La Realidad:</strong> Miguel Hidalgo no tocó la campana esa madrugada. Quien llamó a misa a los feligreses fue el campanero de la parroquia, José Galván, mientras Hidalgo convocaba a la gente en el atrio.</p> <!-- Explicación del mito 1 -->
+                </div> <!-- Cierra la caja de contenido 1 -->
+            </div> <!-- Cierra el ítem 1 del acordeón -->
 
-            <!-- Ítem 2: Porfirio Díaz y el Grito -->
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="badge-mito">DATO</span> El festejó del 15 de septiembre y Porfirio Díaz</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>Existe el mito popular de que Porfirio Díaz movió el Grito al 15 de septiembre para hacerlo coincidir con su cumpleaños. Sin embargo, la celebración ya se realizaba desde la década de 1840 la noche del 15 para evitar la fatiga del mediodía siguiente.</p>
-                </div>
-            </div>
+            <div class="accordion-item"> <!-- Ítem 2 del acordeón -->
+                <button class="accordion-header"> <!-- Botón desplegable para la segunda pregunta -->
+                    <span><span class="badge-mito">DATO</span> El festejó del 15 de septiembre y Porfirio Díaz</span> <!-- Badge e interrogante 2 -->
+                    <span class="accordion-icon">+</span> <!-- Ícono de despliegue -->
+                </button> <!-- Cierra el botón 2 -->
+                <div class="accordion-content"> <!-- Caja con la respuesta desplegable 2 -->
+                    <p>Existe el mito popular de que Porfirio Díaz movió el Grito al 15 de septiembre para hacerlo coincidir con su cumpleaños. Sin embargo, la celebración ya se realizaba desde la década de 1840 la noche del 15 para evitar la fatiga del mediodía siguiente.</p> <!-- Explicación del dato 2 -->
+                </div> <!-- Cierra la caja de contenido 2 -->
+            </div> <!-- Cierra el ítem 2 del acordeón -->
 
-            <!-- Ítem 3: Retrato de Miguel Hidalgo -->
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="badge-mito">MITO</span> El verdadero rostro de Miguel Hidalgo</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>La Realidad:</strong> No existe ningún retrato contemporáneo realizado en vida a Miguel Hidalgo. El cuadro oficial más difundido fue pintado décadas después por encargo del emperador Maximiliano de Habsburgo, utilizando la figura de un sacerdote belga como modelo.</p>
-                </div>
-            </div>
+            <div class="accordion-item"> <!-- Ítem 3 del acordeón -->
+                <button class="accordion-header"> <!-- Botón desplegable para la tercera pregunta -->
+                    <span><span class="badge-mito">MITO</span> El verdadero rostro de Miguel Hidalgo</span> <!-- Badge e interrogante 3 -->
+                    <span class="accordion-icon">+</span> <!-- Ícono de despliegue -->
+                </button> <!-- Cierra el botón 3 -->
+                <div class="accordion-content"> <!-- Caja con la respuesta desplegable 3 -->
+                    <p><strong>La Realidad:</strong> No existe ningún retrato contemporáneo realizado en vida a Miguel Hidalgo. El cuadro oficial más difundido fue pintado décadas después por encargo del emperador Maximiliano de Habsburgo, utilizando la figura de un sacerdote belga como modelo.</p> <!-- Explicación del mito 3 -->
+                </div> <!-- Cierra la caja de contenido 3 -->
+            </div> <!-- Cierra el ítem 3 del acordeón -->
 
-            <!-- Ítem 4: Chiles en Nogada -->
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="badge-mito">DATO</span> El origen de los Chiles en Nogada</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>Este célebre platillo fue creado por las monjas agustinas del convento de Santa Mónica en Puebla para celebrar la firma de los Tratados de Córdoba y homenajear a Agustín de Iturbide, representando los colores del Ejército Trigarante (verde, blanco y rojo).</p>
-                </div>
-            </div>
-        </div>
+            <div class="accordion-item"> <!-- Ítem 4 del acordeón -->
+                <button class="accordion-header"> <!-- Botón desplegable para la cuarta pregunta -->
+                    <span><span class="badge-mito">DATO</span> El origen de los Chiles en Nogada</span> <!-- Badge e interrogante 4 -->
+                    <span class="accordion-icon">+</span> <!-- Ícono de despliegue -->
+                </button> <!-- Cierra el botón 4 -->
+                <div class="accordion-content"> <!-- Caja con la respuesta desplegable 4 -->
+                    <p>Este célebre platillo fue creado por las monjas agustinas del convento de Santa Mónica en Puebla para celebrar la firma de los Tratados de Córdoba y homenajear a Agustín de Iturbide, representando los colores del Ejército Trigarante (verde, blanco y rojo).</p> <!-- Explicación del dato 4 -->
+                </div> <!-- Cierra la caja de contenido 4 -->
+            </div> <!-- Cierra el ítem 4 del acordeón -->
+        </div> <!-- Cierra el contenedor de acordeón -->
 
-        <!-- Navegación entre páginas -->
-        <div class="nav-paginacion">
-            <a href="personajes.html" class="btn-pag">← Personajes</a>
-            <a href="index.html" class="btn-pag">Volver al Inicio ↑</a>
-        </div>
-    </section>
+        <div class="nav-paginacion"> <!-- Botones de desplazamiento entre páginas -->
+            <a href="personajes.html" class="btn-pag">← Personajes</a> <!-- Botón para volver a personajes -->
+            <a href="index.html" class="btn-pag">Volver al Inicio ↑</a> <!-- Botón para regresar al inicio -->
+        </div> <!-- Cierra contenedor de paginación -->
+    </section> <!-- Cierra la sección mitos -->
 
-    <!-- Pie de página -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p>
-        </div>
-        <div class="liston-patrio"></div>
-    </footer>
+    <footer> <!-- Pie de página -->
+        <div class="footer-content"> <!-- Contenedor de la información del creador -->
+            <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p> <!-- Texto de derechos reservador del estudiante -->
+        </div> <!-- Cierra footer-content -->
+        <div class="liston-patrio"></div> <!-- Franja decorativa tricolor inferior -->
+    </footer> <!-- Cierra la etiqueta footer -->
 
-    <!-- Código JavaScript para la funcionalidad interactiva del acordeón -->
-    <script>
-        // Selecciona todos los botones del acordeón
-        document.querySelectorAll('.accordion-header').forEach(button => {
-            // Añade un evento de clic a cada botón
-            button.addEventListener('click', () => {
-                const accordionItem = button.parentElement;
+    <script> // Inicia la sección del código JavaScript interactivo
+        document.querySelectorAll('.accordion-header').forEach(button => { // Selecciona todos los botones del acordeón y los recorre con forEach
+            button.addEventListener('click', () => { // Agrega un evento 'click' a cada botón para detectar cuando el usuario presiona
+                const accordionItem = button.parentElement; // Almacena en una constante la tarjeta contenedora (.accordion-item) del botón accionado
                 
-                // Cierra los demás ítems abriéndose solo uno a la vez
-                document.querySelectorAll('.accordion-item').forEach(item => {
-                    if (item !== accordionItem) {
-                        item.classList.remove('active');
-                    }
-                });
+                document.querySelectorAll('.accordion-item').forEach(item => { // Busca todos los ítems del acordeón de la página
+                    if (item !== accordionItem) { // Verifica si el ítem evaluado no es el que el usuario acaba de presionar
+                        item.classList.remove('active'); // Cierra cualquier otro ítem removiendo la clase CSS 'active'
+                    } // Cierra el bloque condicional if
+                }); // Cierra el recorrido forEach para cerrar ítems secundarios
 
-                // Alterna la clase 'active' para abrir o cerrar el ítem clickeado
-                accordionItem.classList.toggle('active');
-            });
-        });
-    </script>
-</body>
-</html>
+                accordionItem.classList.toggle('active'); // Alterna (agrega o remueve) la clase 'active' en el ítem seleccionado para abrirlo o cerrarlo
+            }); // Cierra la función que escucha el evento click
+        }); // Cierra el recorrido principal forEach
+    </script> <!-- Cierra la etiqueta del script JavaScript -->
+</body> <!-- Cierra la etiqueta body -->
+</html> <!-- Cierra el archivo HTML final -->
