@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Acontecimientos del Mes Patrio</title>
+    
+    <!-- Importación de fuentes de Google Fonts (Montserrat y Open Sans) -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
+        /* Variables CSS globales para los colores patrios y diseño reutilizable */
         :root {
             --verde-patrio: #006847;
             --verde-hover: #004d34;
@@ -22,12 +26,14 @@
             --sombra-fuerte: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
+        /* Reseteo general de márgenes y caja */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Estilos generales del cuerpo de la página */
         body {
             font-family: 'Open Sans', sans-serif;
             background-color: var(--gris-fondo);
@@ -35,17 +41,20 @@
             line-height: 1.6;
         }
 
+        /* Estilos para encabezados */
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
         }
 
+        /* Listón tricolor superior */
         .liston-patrio {
             height: 6px;
             width: 100%;
             background: linear-gradient(90deg, var(--verde-patrio) 33.3%, var(--blanco) 33.3%, var(--blanco) 66.6%, var(--rojo-patrio) 66.6%);
         }
 
+        /* Encabezado fijo y barra de navegación */
         header {
             background-color: var(--blanco);
             box-shadow: var(--sombra-suave);
@@ -63,6 +72,7 @@
             padding: 1rem 2rem;
         }
 
+        /* Logotipo principal */
         .logo {
             font-size: 1.4rem;
             font-weight: 800;
@@ -78,6 +88,7 @@
             color: var(--rojo-patrio);
         }
 
+        /* Enlaces del menú de navegación */
         .nav-links {
             display: flex;
             list-style: none;
@@ -96,6 +107,7 @@
             color: var(--verde-patrio);
         }
 
+        /* Sección Hero (Portada principal) */
         .hero {
             background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.95)),
                         url('https://images.unsplash.com/photo-1568402102990-bc541580b59f?auto=format&fit=crop&q=80') center/cover;
@@ -121,6 +133,7 @@
             margin-bottom: 2rem;
         }
 
+        /* Botón principal de acción */
         .btn-accion {
             display: inline-block;
             background-color: var(--verde-patrio);
@@ -140,12 +153,14 @@
             box-shadow: 0 6px 15px rgba(0, 104, 71, 0.4);
         }
 
+        /* Secciones de contenido general */
         section {
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        /* Tarjetas de resumen del portal */
         .grid-resumen {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -172,6 +187,7 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Pie de página */
         footer {
             background-color: var(--blanco);
             border-top: 1px solid #E0E0E0;
@@ -191,6 +207,7 @@
             font-size: 0.9rem;
         }
 
+        /* Diseño responsivo para pantallas móviles */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -202,8 +219,10 @@
     </style>
 </head>
 <body>
+    <!-- Listón con los colores de la bandera de México -->
     <div class="liston-patrio"></div>
 
+    <!-- Menú de navegación principal -->
     <header>
         <nav>
             <div class="logo">
@@ -218,6 +237,7 @@
         </nav>
     </header>
 
+    <!-- Sección de Portada / Hero -->
     <section class="hero">
         <div class="hero-container">
             <h1>Acontecimientos del Mes Patrio</h1>
@@ -226,21 +246,25 @@
         </div>
     </section>
 
+    <!-- Sección con accesos directos a las páginas del portal -->
     <section>
         <h2 style="text-align: center; font-size: 2rem; color: var(--texto-oscuro);">Explora el Contenido</h2>
         <p style="text-align: center; color: var(--rojo-patrio); font-weight: 600; text-transform: uppercase; margin-bottom: 2rem;">Conoce las secciones del portal</p>
         
         <div class="grid-resumen">
+            <!-- Tarjeta hacia la línea de tiempo -->
             <div class="card-resumen">
                 <h3>Fechas Clave</h3>
                 <p>Recorre la línea de tiempo histórica con los acontecimientos más trascendentes del mes.</p>
                 <a href="linea_tiempo.html" class="btn-accion">Ver Fechas</a>
             </div>
+            <!-- Tarjeta hacia la página de personajes -->
             <div class="card-resumen">
                 <h3>Personajes Ilustres</h3>
                 <p>Conoce los rostros y aportaciones de los hombres y mujeres que lucharon por la libertad.</p>
                 <a href="personajes.html" class="btn-accion">Ver Personajes</a>
             </div>
+            <!-- Tarjeta hacia la página de mitos -->
             <div class="card-resumen">
                 <h3>Mitos y Datos</h3>
                 <p>Aprende la verdad detrás de los mitos más populares de la Independencia de México.</p>
@@ -249,6 +273,7 @@
         </div>
     </section>
 
+    <!-- Pie de página con créditos del autor -->
     <footer>
         <div class="footer-content">
             <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p>
