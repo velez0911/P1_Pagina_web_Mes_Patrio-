@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Configuración inicial del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personajes Ilustres - Acontecimientos del Mes Patrio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
+        /* Paleta de colores patrios mediante variables */
         :root {
             --verde-patrio: #006847;
             --verde-hover: #004d34;
@@ -38,12 +40,14 @@
             font-weight: 700;
         }
 
+        /* Listón tricolor */
         .liston-patrio {
             height: 6px;
             width: 100%;
             background: linear-gradient(90deg, var(--verde-patrio) 33.3%, var(--blanco) 33.3%, var(--blanco) 66.6%, var(--rojo-patrio) 66.6%);
         }
 
+        /* Encabezado fijo */
         header {
             background-color: var(--blanco);
             box-shadow: var(--sombra-suave);
@@ -115,12 +119,14 @@
             margin-bottom: 3rem;
         }
 
+        /* Rejilla responsiva para mostrar las tarjetas de personajes */
         .grid-personajes {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
+        /* Tarjeta individual de personaje */
         .card-personaje {
             background-color: var(--blanco);
             border-radius: 12px;
@@ -132,11 +138,13 @@
             padding: 2rem 1.5rem;
         }
 
+        /* Efecto hover al pasar el ratón */
         .card-personaje:hover {
             transform: translateY(-8px);
             box-shadow: var(--sombra-fuerte);
         }
 
+        /* Estilo para los avatares circulares */
         .avatar-container {
             width: 110px;
             height: 110px;
@@ -179,6 +187,7 @@
             color: var(--texto-suave);
         }
 
+        /* Navegación entre páginas */
         .nav-paginacion {
             display: flex;
             justify-content: space-between;
@@ -199,6 +208,7 @@
             background-color: var(--verde-hover);
         }
 
+        /* Footer */
         footer {
             background-color: var(--blanco);
             border-top: 1px solid #E0E0E0;
@@ -224,8 +234,10 @@
     </style>
 </head>
 <body>
+    <!-- Listón decorativo -->
     <div class="liston-patrio"></div>
 
+    <!-- Menú de la página -->
     <header>
         <nav>
             <div class="logo">
@@ -240,11 +252,13 @@
         </nav>
     </header>
 
+    <!-- Sección de Héroes y Personajes de la Independencia -->
     <section id="personajes">
         <h2 class="titulo-seccion">Personajes Ilustres</h2>
         <p class="subtitulo-seccion">Los rostros de la Independencia</p>
 
         <div class="grid-personajes">
+            <!-- Personaje 1: Miguel Hidalgo -->
             <div class="card-personaje">
                 <div class="avatar-container">
                     <div class="avatar-placeholder">MH</div>
@@ -254,6 +268,7 @@
                 <p>Sacerdote y revolucionario que inició el movimiento independentista aboliendo la esclavitud en sus primeros decretos.</p>
             </div>
 
+            <!-- Personaje 2: Josefa Ortiz -->
             <div class="card-personaje">
                 <div class="avatar-container">
                     <div class="avatar-placeholder">JO</div>
@@ -263,6 +278,7 @@
                 <p>Pieza clave en la Conspiración de Querétaro. Alertó a los insurgentes de que la conspiración había sido descubierta.</p>
             </div>
 
+            <!-- Personaje 3: José María Morelos -->
             <div class="card-personaje">
                 <div class="avatar-container">
                     <div class="avatar-placeholder">JM</div>
@@ -272,6 +288,7 @@
                 <p>Genio militar que organizó la segunda etapa de la lucha y sentó las bases del primer Estado mexicano con división de poderes.</p>
             </div>
 
+            <!-- Personaje 4: Vicente Guerrero -->
             <div class="card-personaje">
                 <div class="avatar-container">
                     <div class="avatar-placeholder">VG</div>
@@ -282,12 +299,14 @@
             </div>
         </div>
 
+        <!-- Botones de paginación para avanzar/retroceder -->
         <div class="nav-paginacion">
             <a href="linea_tiempo.html" class="btn-pag">← Fechas Clave</a>
             <a href="mitos.html" class="btn-pag">Ver Mitos →</a>
         </div>
     </section>
 
+    <!-- Pie de página -->
     <footer>
         <div class="footer-content">
             <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p>
