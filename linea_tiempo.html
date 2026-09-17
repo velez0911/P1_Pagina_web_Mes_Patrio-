@@ -1,338 +1,314 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <!-- Configuración del documento -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fechas Clave - Acontecimientos del Mes Patrio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<!DOCTYPE html> <!-- Especifica la declaración del tipo de documento HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML definiendo el idioma en español -->
+<head> <!-- Contenedor de metadatos y enlaces a recursos externos -->
+    <meta charset="UTF-8"> <!-- Establece el conjunto de caracteres UTF-8 para símbolos y acentos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta el escalado inicial y el ancho en pantallas móviles -->
+    <title>Fechas Clave - Acontecimientos del Mes Patrio</title> <!-- Título de la pestaña de la página -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> <!-- Enlace para cargar tipografías desde Google Fonts -->
     
-    <style>
-        /* Variables de color de la paleta patria */
-        :root {
-            --verde-patrio: #006847;
-            --verde-hover: #004d34;
-            --rojo-patrio: #CE1126;
-            --rojo-hover: #a30d1e;
-            --blanco: #FFFFFF;
-            --gris-fondo: #F8F9FA;
-            --texto-oscuro: #2B2B2B;
-            --texto-suave: #666666;
-            --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
+    <style> /* Inicio de las reglas de diseño CSS internas */
+        :root { /* Selector de variables CSS en el ámbito raíz */
+            --verde-patrio: #006847; /* Asigna el color verde primario */
+            --verde-hover: #004d34; /* Asigna la variante verde más oscura para interactividad */
+            --rojo-patrio: #CE1126; /* Asigna el color rojo primario */
+            --rojo-hover: #a30d1e; /* Asigna la variante roja más oscura para interactividad */
+            --blanco: #FFFFFF; /* Asigna el código hexadecimal blanco */
+            --gris-fondo: #F8F9FA; /* Asigna un tono gris claro para el fondo */
+            --texto-oscuro: #2B2B2B; /* Asigna el color oscuro para textos estándar */
+            --texto-suave: #666666; /* Asigna un tono gris atenuado para texto secundario */
+            --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08); /* Define un parámetro estándar de sombra flotante */
+        } /* Cierra el selector raíz */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { /* Selector global para la eliminación de márgenes por defecto */
+            margin: 0; /* Resetea los márgenes a cero */
+            padding: 0; /* Resetea el relleno a cero */
+            box-sizing: border-box; /* Configura la caja de modelo border-box */
+        } /* Cierra reseteo global */
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--gris-fondo);
-            color: var(--texto-oscuro);
-            line-height: 1.6;
-        }
+        body { /* Establece reglas estilísticas para el cuerpo */
+            font-family: 'Open Sans', sans-serif; /* Asigna tipografía Open Sans */
+            background-color: var(--gris-fondo); /* Aplica el fondo gris suave mediante variable */
+            color: var(--texto-oscuro); /* Asigna el color de tipografía por defecto */
+            line-height: 1.6; /* Define interlineado de lectura fácil */
+        } /* Cierra estilos de body */
 
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
+        h1, h2, h3 { /* Selector múltiple para encabezados principales */
+            font-family: 'Montserrat', sans-serif; /* Aplica la fuente Montserrat a los títulos */
+            font-weight: 700; /* Define peso tipográfico en negrita */
+        } /* Cierra estilos de títulos */
 
-        /* Listón patrio superior */
-        .liston-patrio {
-            height: 6px;
-            width: 100%;
-            background: linear-gradient(90deg, var(--verde-patrio) 33.3%, var(--blanco) 33.3%, var(--blanco) 66.6%, var(--rojo-patrio) 66.6%);
-        }
+        .liston-patrio { /* Barra de adorno tricolor en los extremos de la página */
+            height: 6px; /* Grosor vertical de 6 píxeles */
+            width: 100%; /* Cubre todo el ancho horizontal */
+            background: linear-gradient(90deg, var(--verde-patrio) 33.3%, var(--blanco) 33.3%, var(--blanco) 66.6%, var(--rojo-patrio) 66.6%); /* Gradiente con división justa verde, blanco y rojo */
+        } /* Cierra la clase liston-patrio */
 
-        /* Menú superior pegajoso (Sticky) */
-        header {
-            background-color: var(--blanco);
-            box-shadow: var(--sombra-suave);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        header { /* Estilo para el contenedor del menú principal */
+            background-color: var(--blanco); /* Fondo blanco puro */
+            box-shadow: var(--sombra-suave); /* Aplica sombra inferior */
+            position: sticky; /* Mantiene fijado el elemento al desplazarse */
+            top: 0; /* Posiciona el elemento fijo en el borde superior */
+            z-index: 1000; /* Superpone la barra por encima de cualquier otro componente */
+        } /* Cierra header */
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
+        nav { /* Contenedor de la barra de navegación */
+            max-width: 1200px; /* Ancho máximo estándar de 1200px */
+            margin: 0 auto; /* Auto-centrado en el eje horizontal */
+            display: flex; /* Flexbox para alineación */
+            justify-content: space-between; /* Distribuye espacio equitativo entre logo y menú */
+            align-items: center; /* Alineación vertical al centro */
+            padding: 1rem 2rem; /* Relleno superior/inferior de 1rem y lateral de 2rem */
+        } /* Cierra nav */
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--verde-patrio);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .logo { /* Clase para el título del logo */
+            font-size: 1.4rem; /* Tamaño de letra del título de la marca */
+            font-weight: 800; /* Negrita pesada */
+            color: var(--verde-patrio); /* Asigna color verde al texto */
+            text-transform: uppercase; /* Fuerza letras en mayúsculas */
+            letter-spacing: 1px; /* Espaciado entre caracteres */
+            display: flex; /* Flexbox interno */
+            align-items: center; /* Alineación vertical centrada */
+            gap: 10px; /* Separación de 10px entre la bandera y el texto */
+        } /* Cierra clase logo */
 
-        .logo span { color: var(--rojo-patrio); }
+        .logo span { color: var(--rojo-patrio); } /* Asigna color rojo al texto "Patrio" dentro del span */
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
+        .nav-links { /* Lista de items de navegación */
+            display: flex; /* Muestra items en orientación horizontal */
+            list-style: none; /* Remueve los puntos de lista */
+            gap: 1.5rem; /* Separación horizontal de 1.5rem entre enlaces */
+        } /* Cierra nav-links */
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--texto-oscuro);
-            font-weight: 600;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
+        .nav-links a { /* Enlaces dentro del menú superior */
+            text-decoration: none; /* Elimina líneas por debajo del hipervínculo */
+            color: var(--texto-oscuro); /* Color predeterminado de texto */
+            font-weight: 600; /* Peso de texto seminegrita */
+            transition: color 0.3s ease; /* Duración y curva de transición al interactuar */
+            font-size: 0.95rem; /* Tamaño de fuente para el menú */
+        } /* Cierra nav-links a */
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--verde-patrio);
-        }
+        .nav-links a:hover, .nav-links a.active { /* Cambio de estilo en hover o si la página está activa */
+            color: var(--verde-patrio); /* Cambia el color a verde patrio */
+        } /* Cierra selectores hover y active */
 
-        /* Contenedores de secciones principales */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        section { /* Configuración para las secciones internas */
+            padding: 4rem 2rem; /* Relleno interior superior e inferior de 4rem y laterales de 2rem */
+            max-width: 1200px; /* Ancho máximo alineado de la sección */
+            margin: 0 auto; /* Centrado horizontal automático */
+        } /* Cierra section */
 
-        .titulo-seccion {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--texto-oscuro);
-        }
+        .titulo-seccion { /* Formato del título principal de la sección */
+            text-align: center; /* Centra el texto del título */
+            font-size: 2.2rem; /* Define tamaño tipográfico destacado */
+            margin-bottom: 0.5rem; /* Margen inferior estrecho */
+            color: var(--texto-oscuro); /* Color de texto oscuro principal */
+        } /* Cierra titulo-seccion */
 
-        .subtitulo-seccion {
-            text-align: center;
-            color: var(--rojo-patrio);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-bottom: 3rem;
-        }
+        .subtitulo-seccion { /* Formato del subtítulo o bajada */
+            text-align: center; /* Centra el texto del subtítulo */
+            color: var(--rojo-patrio); /* Asigna el color rojo patrio al texto */
+            font-weight: 600; /* Peso seminegrita */
+            text-transform: uppercase; /* Transforma a letras mayúsculas */
+            letter-spacing: 2px; /* Amplía el espaciado entre letras a 2px */
+            font-size: 0.9rem; /* Tamaño de fuente ligeramente reducido */
+            margin-bottom: 3rem; /* Margen inferior amplio antes del contenido */
+        } /* Cierra subtitulo-seccion */
 
-        /* Estilos específicos para la línea de tiempo vertical */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        .timeline { /* Contenedor principal de la línea de tiempo */
+            position: relative; /* Permite posicionar elementos hijos de forma absoluta */
+            max-width: 900px; /* Restringe el ancho a 900 píxeles */
+            margin: 0 auto; /* Centra la línea de tiempo */
+        } /* Cierra timeline */
 
-        /* Línea central verde */
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: var(--verde-patrio);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
+        .timeline::after { /* Seudoelemento que dibuja el eje central de la línea */
+            content: ''; /* Crea un elemento visual vacío */
+            position: absolute; /* Posicionamiento absoluto respecto a .timeline */
+            width: 4px; /* Ancho de 4px para la línea vertical */
+            background-color: var(--verde-patrio); /* Pinta la línea en color verde */
+            top: 0; /* Inicia desde el borde superior */
+            bottom: 0; /* Se extiende hasta el borde inferior */
+            left: 50%; /* Se ubica exactamente al 50% horizontal */
+            margin-left: -2px; /* Ajusta el eje restando 2px para centrar perfecto */
+        } /* Cierra seudoelemento timeline::after */
 
-        /* Elemento individual de la línea de tiempo */
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
+        .timeline-item { /* Formato para cada bloque o evento en la línea */
+            padding: 10px 40px; /* Relleno vertical y horizontal del bloque */
+            position: relative; /* Permite posicionar los círculos marcadores con absolute */
+            background-color: inherit; /* Hereda el color de fondo del padre */
+            width: 50%; /* Ocupa exactamente la mitad del ancho de la línea */
+        } /* Cierra timeline-item */
 
-        /* Círculo rojo central */
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: var(--blanco);
-            border: 4px solid var(--rojo-patrio);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
+        .timeline-item::after { /* Seudoelemento que dibuja el punto marcador */
+            content: ''; /* Elemento vacío para renderizar la figura */
+            position: absolute; /* Posicionamiento absoluto relativo al ítem */
+            width: 20px; /* Ancho del círculo de 20px */
+            height: 20px; /* Alto del círculo de 20px */
+            right: -10px; /* Centra el punto sobre la línea vertical */
+            background-color: var(--blanco); /* Fondo blanco interno */
+            border: 4px solid var(--rojo-patrio); /* Borde rojo patrio de 4px */
+            top: 15px; /* Altura donde se posiciona el punto */
+            border-radius: 50%; /* Convierte la figura cuadrada en un círculo */
+            z-index: 1; /* Coloca el círculo por encima del eje vertical */
+        } /* Cierra seudoelemento timeline-item::after */
 
-        /* Posicionamiento a la izquierda y derecha */
-        .left { left: 0; }
-        .right { left: 50%; }
-        .right::after { left: -10px; }
+        .left { left: 0; } /* Posiciona el bloque del evento a la izquierda */
+        .right { left: 50%; } /* Posiciona el bloque del evento a la derecha */
+        .right::after { left: -10px; } /* Reajusta la posición del círculo para los bloques de la derecha */
 
-        /* Cuadro de texto para los eventos */
-        .timeline-content {
-            padding: 20px 25px;
-            background-color: var(--blanco);
-            position: relative;
-            border-radius: 8px;
-            box-shadow: var(--sombra-suave);
-            border-top: 4px solid var(--verde-patrio);
-        }
+        .timeline-content { /* Contenedor de la tarjeta del evento */
+            padding: 20px 25px; /* Relleno interior de la tarjeta del evento */
+            background-color: var(--blanco); /* Fondo de la tarjeta en blanco */
+            position: relative; /* Mantiene la posición en relación con la cuadrícula */
+            border-radius: 8px; /* Bordes redondeados de 8px */
+            box-shadow: var(--sombra-suave); /* Sombreado suave periférico */
+            border-top: 4px solid var(--verde-patrio); /* Borde superior con acento verde */
+        } /* Cierra timeline-content */
 
-        .timeline-fecha {
-            display: inline-block;
-            background-color: var(--rojo-patrio);
-            color: var(--blanco);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
+        .timeline-fecha { /* Etiqueta indicadora de la fecha del evento */
+            display: inline-block; /* Formato de bloque en línea para adaptarse al contenido */
+            background-color: var(--rojo-patrio); /* Fondo rojo patrio */
+            color: var(--blanco); /* Texto en blanco */
+            padding: 4px 12px; /* Relleno interno de la etiqueta */
+            border-radius: 20px; /* Bordes completamente redondeados */
+            font-size: 0.85rem; /* Tamaño de letra pequeño */
+            font-weight: 700; /* Texto en negrita */
+            margin-bottom: 10px; /* Separación inferior respecto al título */
+        } /* Cierra timeline-fecha */
 
-        .timeline-content h3 {
-            color: var(--verde-patrio);
-            margin-bottom: 8px;
-        }
+        .timeline-content h3 { /* Título del evento dentro de la tarjeta */
+            color: var(--verde-patrio); /* Color verde patrio */
+            margin-bottom: 8px; /* Margen inferior antes del párrafo */
+        } /* Cierra título del evento */
 
-        /* Botones para navegar entre páginas HTML */
-        .nav-paginacion {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 3rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .nav-paginacion { /* Estilo para la barra de navegación entre páginas */
+            display: flex; /* Activa la alineación flexible flexbox */
+            justify-content: space-between; /* Alinea un botón a cada extremo */
+            margin-top: 3rem; /* Margen superior de separación */
+            max-width: 900px; /* Ancho coincidente con la línea de tiempo */
+            margin-left: auto; /* Centrado automático lateral izquierdo */
+            margin-right: auto; /* Centrado automático lateral derecho */
+        } /* Cierra nav-paginacion */
 
-        .btn-pag {
-            background-color: var(--verde-patrio);
-            color: var(--blanco);
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background 0.3s;
-        }
+        .btn-pag { /* Estilo base para los botones de cambio de página */
+            background-color: var(--verde-patrio); /* Fondo verde principal */
+            color: var(--blanco); /* Texto blanco */
+            padding: 0.8rem 1.5rem; /* Relleno interno */
+            border-radius: 30px; /* Bordes ovalados */
+            text-decoration: none; /* Elimina la línea inferior del hipervínculo */
+            font-weight: 700; /* Fuente en negrita */
+            transition: background 0.3s; /* Animación fluida de cambio de color */
+        } /* Cierra btn-pag */
 
-        .btn-pag:hover {
-            background-color: var(--verde-hover);
-        }
+        .btn-pag:hover { /* Cambio al interactuar con el botón de paginación */
+            background-color: var(--verde-hover); /* Cambia al tono verde oscuro */
+        } /* Cierra hover de paginación */
 
-        /* Footer */
-        footer {
-            background-color: var(--blanco);
-            border-top: 1px solid #E0E0E0;
-            padding-top: 2rem;
-            margin-top: 4rem;
-        }
+        footer { /* Estilos del pie de página */
+            background-color: var(--blanco); /* Fondo blanco */
+            border-top: 1px solid #E0E0E0; /* Línea divisoria gris claro */
+            padding-top: 2rem; /* Relleno superior */
+            margin-top: 4rem; /* Margen superior */
+        } /* Cierra footer */
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 2rem 2rem;
-            text-align: center;
-        }
+        .footer-content { /* Área de contenido dentro del pie de página */
+            max-width: 1200px; /* Ancho máximo contenido */
+            margin: 0 auto; /* Centrado horizontal */
+            padding: 0 2rem 2rem 2rem; /* Relleno lateral e inferior */
+            text-align: center; /* Alineación del texto al centro */
+        } /* Cierra footer-content */
 
-        .footer-content p {
-            color: var(--texto-suave);
-            font-size: 0.9rem;
-        }
+        .footer-content p { /* Párrafo explicativo del autor */
+            color: var(--texto-suave); /* Color gris suave */
+            font-size: 0.9rem; /* Tamaño de letra de 0.9rem */
+        } /* Cierra párrafo footer */
 
-        /* Ajuste de la línea de tiempo para celulares */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .timeline::after { left: 31px; }
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            .timeline-item::after { left: 21px; }
-            .right { left: 0%; }
-        }
-    </style>
-</head>
-<body>
-    <!-- Listón tricolor superior -->
-    <div class="liston-patrio"></div>
+        @media (max-width: 768px) { /* Adaptación de responsive para teléfonos y tablets */
+            .nav-links { display: none; } /* Oculta el menú convencional en móviles */
+            .timeline::after { left: 31px; } /* Mueve el eje vertical hacia la izquierda */
+            .timeline-item { /* Modifica los bloques de eventos para móviles */
+                width: 100%; /* Ocupan todo el ancho del dispositivo */
+                padding-left: 70px; /* Desplaza el texto a la derecha del eje */
+                padding-right: 25px; /* Margen derecho */
+            } /* Cierra alineación móvil */
+            .timeline-item::after { left: 21px; } /* Reorganiza la posición de los puntos marcadores */
+            .right { left: 0%; } /* Reajusta la posición de los bloques derechos */
+        } /* Cierra media query */
+    </style> <!-- Cierra el bloque CSS -->
+</head> <!-- Cierra la sección head -->
+<body> <!-- Inicio del contenido visible -->
+    <div class="liston-patrio"></div> <!-- Franja decorativa tricolor superior -->
 
-    <!-- Menú principal -->
-    <header>
-        <nav>
-            <div class="logo">
-                🇲🇽 Septiembre <span>Patrio</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="linea_tiempo.html" class="active">Fechas Clave</a></li>
-                <li><a href="personajes.html">Personajes</a></li>
-                <li><a href="mitos.html">Mitos y Datos</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header> <!-- Encabezado navegable -->
+        <nav> <!-- Estructura del menú de navegación -->
+            <div class="logo"> <!-- Logotipo de la web -->
+                🇲🇽 Septiembre <span>Patrio</span> <!-- Texto e ícono del logo con span en color rojo -->
+            </div> <!-- Cierra div logo -->
+            <ul class="nav-links"> <!-- Enlaces de navegación del menú superior -->
+                <li><a href="index.html">Inicio</a></li> <!-- Enlace a la página principal -->
+                <li><a href="linea_tiempo.html" class="active">Fechas Clave</a></li> <!-- Enlace actual activo de fechas clave -->
+                <li><a href="personajes.html">Personajes</a></li> <!-- Enlace hacia la página de personajes -->
+                <li><a href="mitos.html">Mitos y Datos</a></li> <!-- Enlace hacia la página de mitos -->
+            </ul> <!-- Cierra lista de menú -->
+        </nav> <!-- Cierra navegación -->
+    </header> <!-- Cierra header -->
 
-    <!-- Sección de Línea de Tiempo de Efemérides de Septiembre -->
-    <section id="linea-tiempo">
-        <h2 class="titulo-seccion">Línea de Tiempo Histórica</h2>
-        <p class="subtitulo-seccion">Efemérides más relevantes de Septiembre</p>
+    <section id="linea-tiempo"> <!-- Sección principal contenedora de la línea de tiempo -->
+        <h2 class="titulo-seccion">Línea de Tiempo Histórica</h2> <!-- Encabezado principal de la sección -->
+        <p class="subtitulo-seccion">Efemérides más relevantes de Septiembre</p> <!-- Subtítulo de la sección -->
 
-        <div class="timeline">
-            <!-- Evento 1: 13 de Septiembre -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <span class="timeline-fecha">13 de Septiembre (1847)</span>
-                    <h3>Gesta Heroica de Chapultepec</h3>
-                    <p>Defensa del Castillo de Chapultepec por los Niños Héroes frente a la invasión del ejército estadounidense.</p>
-                </div>
-            </div>
+        <div class="timeline"> <!-- Contenedor principal de la estructura de la línea de tiempo -->
+            <div class="timeline-item left"> <!-- Primer evento posicionado a la izquierda -->
+                <div class="timeline-content"> <!-- Caja contenedora de la información del primer evento -->
+                    <span class="timeline-fecha">13 de Septiembre (1847)</span> <!-- Fecha destacada del evento -->
+                    <h3>Gesta Heroica de Chapultepec</h3> <!-- Nombre del acontecimiento histórico -->
+                    <p>Defensa del Castillo de Chapultepec por los Niños Héroes frente a la invasión del ejército estadounidense.</p> <!-- Descripción del hecho histórico -->
+                </div> <!-- Cierra caja del evento 1 -->
+            </div> <!-- Cierra bloque 1 -->
 
-            <!-- Evento 2: 15 de Septiembre -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <span class="timeline-fecha">15 de Septiembre</span>
-                    <h3>La Noche del Grito</h3>
-                    <p>Conmemoración tradicional del llamado a las armas. Familias y ciudadanos se reúnen en las plazas públicas para celebrar el orgullo nacional.</p>
-                </div>
-            </div>
+            <div class="timeline-item right"> <!-- Segundo evento posicionado a la derecha -->
+                <div class="timeline-content"> <!-- Caja contenedora del segundo evento -->
+                    <span class="timeline-fecha">15 de Septiembre</span> <!-- Fecha destacada -->
+                    <h3>La Noche del Grito</h3> <!-- Nombre del evento tradicional -->
+                    <p>Conmemoración tradicional del llamado a las armas. Familias y ciudadanos se reúnen en las plazas públicas para celebrar el orgullo nacional.</p> <!-- Descripción del evento -->
+                </div> <!-- Cierra caja del evento 2 -->
+            </div> <!-- Cierra bloque 2 -->
 
-            <!-- Evento 3: 16 de Septiembre -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <span class="timeline-fecha">16 de Septiembre (1810)</span>
-                    <h3>Inicio de la Independencia</h3>
-                    <p>El cura Miguel Hidalgo y Costilla da el histórico "Grito de Dolores", marcando el comienzo de la lucha por la libertad mexicana.</p>
-                </div>
-            </div>
+            <div class="timeline-item left"> <!-- Tercer evento a la izquierda -->
+                <div class="timeline-content"> <!-- Caja contenedora del tercer evento -->
+                    <span class="timeline-fecha">16 de Septiembre (1810)</span> <!-- Fecha de la Independencia -->
+                    <h3>Inicio de la Independencia</h3> <!-- Nombre del acontecimiento -->
+                    <p>El cura Miguel Hidalgo y Costilla da el histórico "Grito de Dolores", marcando el comienzo de la lucha por la libertad mexicana.</p> <!-- Descripción histórica detallada -->
+                </div> <!-- Cierra caja del evento 3 -->
+            </div> <!-- Cierra bloque 3 -->
 
-            <!-- Evento 4: 27 de Septiembre -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <span class="timeline-fecha">27 de Septiembre (1821)</span>
-                    <h3>Consumación de la Independencia</h3>
-                    <p>El Ejército Trigarante, encabezado por Agustín de Iturbide y Vicente Guerrero, entra triunfante a la Ciudad de México tras 11 años de lucha.</p>
-                </div>
-            </div>
+            <div class="timeline-item right"> <!-- Cuarto evento a la derecha -->
+                <div class="timeline-content"> <!-- Caja contenedora del cuarto evento -->
+                    <span class="timeline-fecha">27 de Septiembre (1821)</span> <!-- Fecha de consumación -->
+                    <h3>Consumación de la Independencia</h3> <!-- Nombre del evento de entrada triunfal -->
+                    <p>El Ejército Trigarante, encabezado por Agustín de Iturbide y Vicente Guerrero, entra triunfante a la Ciudad de México tras 11 años de lucha.</p> <!-- Explicación del logro histórico -->
+                </div> <!-- Cierra caja del evento 4 -->
+            </div> <!-- Cierra bloque 4 -->
 
-            <!-- Evento 5: 30 de Septiembre -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <span class="timeline-fecha">30 de Septiembre (1765)</span>
-                    <h3>Natalicio de José María Morelos</h3>
-                    <p>Nacimiento del "Siervo de la Nación", líder militar y político clave que redactó los "Sentimientos de la Nación".</p>
-                </div>
-            </div>
-        </div>
+            <div class="timeline-item left"> <!-- Quinto evento a la izquierda -->
+                <div class="timeline-content"> <!-- Caja contenedora del quinto evento -->
+                    <span class="timeline-fecha">30 de Septiembre (1765)</span> <!-- Fecha de natalicio de Morelos -->
+                    <h3>Natalicio de José María Morelos</h3> <!-- Título del acontecimiento -->
+                    <p>Nacimiento del "Siervo de la Nación", líder militar y político clave que redactó los "Sentimientos de la Nación".</p> <!-- Resumen de la importancia de Morelos -->
+                </div> <!-- Cierra caja del evento 5 -->
+            </div> <!-- Cierra bloque 5 -->
+        </div> <!-- Cierra el div principal timeline -->
 
-        <!-- Botones de navegación entre archivos del proyecto -->
-        <div class="nav-paginacion">
-            <a href="index.html" class="btn-pag">← Inicio</a>
-            <a href="personajes.html" class="btn-pag">Ver Personajes →</a>
-        </div>
-    </section>
+        <div class="nav-paginacion"> <!-- Contenedor de botones de desplazamiento de página -->
+            <a href="index.html" class="btn-pag">← Inicio</a> <!-- Enlace para regresar a Inicio -->
+            <a href="personajes.html" class="btn-pag">Ver Personajes →</a> <!-- Enlace para avanzar a la página de personajes -->
+        </div> <!-- Cierra el contenedor de paginación -->
+    </section> <!-- Cierra la sección de la línea de tiempo -->
 
-    <!-- Pie de página -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p>
-        </div>
-        <div class="liston-patrio"></div>
-    </footer>
-</body>
-</html>
+    <footer> <!-- Inicio del pie de página -->
+        <div class="footer-content"> <!-- Contenedor de derechos y datos autorales -->
+            <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p> <!-- Texto de derechos reservador con el nombre del creador -->
+        </div> <!-- Cierra footer-content -->
+        <div class="liston-patrio"></div> <!-- Franja decorativa tricolor en el fondo de la página -->
+    </footer> <!-- Cierra la etiqueta footer -->
+</body> <!-- Cierra la etiqueta body -->
+</html> <!-- Cierra el archivo HTML -->
