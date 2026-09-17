@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos de la página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mitos y Datos - Acontecimientos del Mes Patrio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
+        /* Configuración de paleta de colores patrios */
         :root {
             --verde-patrio: #006847;
             --verde-hover: #004d34;
@@ -114,6 +116,7 @@
             margin-bottom: 3rem;
         }
 
+        /* Estilos específicos para la sección del Acordeón interactivo */
         .accordion-container {
             max-width: 800px;
             margin: 0 auto;
@@ -128,6 +131,7 @@
             overflow: hidden;
         }
 
+        /* Encabezado/Botón del acordeón */
         .accordion-header {
             width: 100%;
             padding: 1.2rem 1.5rem;
@@ -154,6 +158,7 @@
             transition: transform 0.3s ease;
         }
 
+        /* Contenido oculto desplegable */
         .accordion-content {
             padding: 0 1.5rem;
             max-height: 0;
@@ -163,6 +168,7 @@
             color: var(--texto-suave);
         }
 
+        /* Estado activo cuando el acordeón se abre */
         .accordion-item.active .accordion-content {
             padding: 1.2rem 1.5rem;
             max-height: 300px;
@@ -173,6 +179,7 @@
             transform: rotate(45deg);
         }
 
+        /* Etiquetas MITO / DATO */
         .badge-mito {
             background-color: var(--rojo-patrio);
             color: var(--blanco);
@@ -183,6 +190,7 @@
             vertical-align: middle;
         }
 
+        /* Navegación entre páginas */
         .nav-paginacion {
             display: flex;
             justify-content: space-between;
@@ -206,6 +214,7 @@
             background-color: var(--verde-hover);
         }
 
+        /* Pie de página */
         footer {
             background-color: var(--blanco);
             border-top: 1px solid #E0E0E0;
@@ -231,8 +240,10 @@
     </style>
 </head>
 <body>
+    <!-- Listón decorativo -->
     <div class="liston-patrio"></div>
 
+    <!-- Menú de la página -->
     <header>
         <nav>
             <div class="logo">
@@ -247,11 +258,13 @@
         </nav>
     </header>
 
+    <!-- Sección Mitos y Datos Curiosos con Acordeón -->
     <section id="mitos">
         <h2 class="titulo-seccion">Datos Curiosos y Mitos</h2>
         <p class="subtitulo-seccion">¿Qué tan bien conoces nuestra historia?</p>
 
         <div class="accordion-container">
+            <!-- Ítem 1: La Campana de Dolores -->
             <div class="accordion-item">
                 <button class="accordion-header">
                     <span><span class="badge-mito">MITO</span> ¿Hidalgo tocó la Campana de Dolores?</span>
@@ -262,6 +275,7 @@
                 </div>
             </div>
 
+            <!-- Ítem 2: Porfirio Díaz y el Grito -->
             <div class="accordion-item">
                 <button class="accordion-header">
                     <span><span class="badge-mito">DATO</span> El festejó del 15 de septiembre y Porfirio Díaz</span>
@@ -272,6 +286,7 @@
                 </div>
             </div>
 
+            <!-- Ítem 3: Retrato de Miguel Hidalgo -->
             <div class="accordion-item">
                 <button class="accordion-header">
                     <span><span class="badge-mito">MITO</span> El verdadero rostro de Miguel Hidalgo</span>
@@ -282,6 +297,7 @@
                 </div>
             </div>
 
+            <!-- Ítem 4: Chiles en Nogada -->
             <div class="accordion-item">
                 <button class="accordion-header">
                     <span><span class="badge-mito">DATO</span> El origen de los Chiles en Nogada</span>
@@ -293,12 +309,14 @@
             </div>
         </div>
 
+        <!-- Navegación entre páginas -->
         <div class="nav-paginacion">
             <a href="personajes.html" class="btn-pag">← Personajes</a>
             <a href="index.html" class="btn-pag">Volver al Inicio ↑</a>
         </div>
     </section>
 
+    <!-- Pie de página -->
     <footer>
         <div class="footer-content">
             <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p>
@@ -306,17 +324,22 @@
         <div class="liston-patrio"></div>
     </footer>
 
+    <!-- Código JavaScript para la funcionalidad interactiva del acordeón -->
     <script>
+        // Selecciona todos los botones del acordeón
         document.querySelectorAll('.accordion-header').forEach(button => {
+            // Añade un evento de clic a cada botón
             button.addEventListener('click', () => {
                 const accordionItem = button.parentElement;
                 
+                // Cierra los demás ítems abriéndose solo uno a la vez
                 document.querySelectorAll('.accordion-item').forEach(item => {
                     if (item !== accordionItem) {
                         item.classList.remove('active');
                     }
                 });
 
+                // Alterna la clase 'active' para abrir o cerrar el ítem clickeado
                 accordionItem.classList.toggle('active');
             });
         });
