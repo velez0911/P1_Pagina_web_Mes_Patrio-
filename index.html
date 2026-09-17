@@ -1,284 +1,261 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <!-- Configuración básica del documento -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Acontecimientos del Mes Patrio</title>
+<!DOCTYPE html> <!-- Declara el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia la etiqueta raíz HTML especificando el idioma español -->
+<head> <!-- Abre la sección de cabecera que contiene metadatos y enlaces -->
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres en UTF-8 para admitir acentos y caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la vista adaptable para dispositivos móviles -->
+    <title>Inicio - Acontecimientos del Mes Patrio</title> <!-- Define el título de la página visible en la pestaña del navegador -->
     
-    <!-- Importación de fuentes de Google Fonts (Montserrat y Open Sans) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> <!-- Importa las fuentes Montserrat y Open Sans desde Google Fonts -->
     
-    <style>
-        /* Variables CSS globales para los colores patrios y diseño reutilizable */
-        :root {
-            --verde-patrio: #006847;
-            --verde-hover: #004d34;
-            --rojo-patrio: #CE1126;
-            --rojo-hover: #a30d1e;
-            --blanco: #FFFFFF;
-            --gris-fondo: #F8F9FA;
-            --gris-card: #FFFFFF;
-            --texto-oscuro: #2B2B2B;
-            --texto-suave: #666666;
-            --dorado-acento: #D4AF37;
-            --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08);
-            --sombra-fuerte: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
+    <style> /* Abre la etiqueta de estilos CSS internos */
+        :root { /* Define el selector raíz para declarar variables CSS globales */
+            --verde-patrio: #006847; /* Variable para el color verde patrio */
+            --verde-hover: #004d34; /* Variable para el tono verde en estado hover */
+            --rojo-patrio: #CE1126; /* Variable para el color rojo patrio */
+            --rojo-hover: #a30d1e; /* Variable para el tono rojo en estado hover */
+            --blanco: #FFFFFF; /* Variable para el color blanco */
+            --gris-fondo: #F8F9FA; /* Variable para el color de fondo gris claro */
+            --gris-card: #FFFFFF; /* Variable para el fondo blanco de las tarjetas */
+            --texto-oscuro: #2B2B2B; /* Variable para el color de texto principal oscuro */
+            --texto-suave: #666666; /* Variable para el color de texto secundario suave */
+            --dorado-acento: #D4AF37; /* Variable para detalles y acentos dorados */
+            --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08); /* Variable para sombra ligera */
+            --sombra-fuerte: 0 8px 25px rgba(0, 0, 0, 0.15); /* Variable para sombra pronunciada */
+        } /* Cierra el bloque de variables :root */
 
-        /* Reseteo general de márgenes y caja */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { /* Selector universal para aplicar estilos a todos los elementos */
+            margin: 0; /* Elimina todos los márgenes externos por defecto */
+            padding: 0; /* Elimina todos los rellenos internos por defecto */
+            box-sizing: border-box; /* Incluye bordes y rellenos en el cálculo del tamaño del elemento */
+        } /* Cierra el selector universal */
 
-        /* Estilos generales del cuerpo de la página */
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--gris-fondo);
-            color: var(--texto-oscuro);
-            line-height: 1.6;
-        }
+        body { /* Establece los estilos base para el cuerpo del documento */
+            font-family: 'Open Sans', sans-serif; /* Aplica la fuente principal Open Sans */
+            background-color: var(--gris-fondo); /* Aplica el color de fondo usando la variable gris */
+            color: var(--texto-oscuro); /* Define el color general del texto */
+            line-height: 1.6; /* Establece la altura de línea para mejorar la legibilidad */
+        } /* Cierra los estilos del body */
 
-        /* Estilos para encabezados */
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
+        h1, h2, h3, h4 { /* Selecciona los títulos del nivel 1 al 4 */
+            font-family: 'Montserrat', sans-serif; /* Define la tipografía Montserrat para encabezados */
+            font-weight: 700; /* Define un grosor de letra en negrita (700) */
+        } /* Cierra los estilos de los encabezados */
 
-        /* Listón tricolor superior */
-        .liston-patrio {
-            height: 6px;
-            width: 100%;
-            background: linear-gradient(90deg, var(--verde-patrio) 33.3%, var(--blanco) 33.3%, var(--blanco) 66.6%, var(--rojo-patrio) 66.6%);
-        }
+        .liston-patrio { /* Clase para la barra decorativa superior con tres colores */
+            height: 6px; /* Define la altura de la barra en 6 píxeles */
+            width: 100%; /* Ocupa el 100% del ancho del contenedor */
+            background: linear-gradient(90deg, var(--verde-patrio) 33.3%, var(--blanco) 33.3%, var(--blanco) 66.6%, var(--rojo-patrio) 66.6%); /* Aplica un degradado lineal con los colores de la bandera */
+        } /* Cierra los estilos de la barra tricolor */
 
-        /* Encabezado fijo y barra de navegación */
-        header {
-            background-color: var(--blanco);
-            box-shadow: var(--sombra-suave);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        header { /* Selecciona el contenedor de la cabecera navegable */
+            background-color: var(--blanco); /* Establece el fondo blanco en el encabezado */
+            box-shadow: var(--sombra-suave); /* Aplica una sombra suave bajo el encabezado */
+            position: sticky; /* Hace que la cabecera quede fija al desplazarse */
+            top: 0; /* Mantiene la cabecera alineada en la parte superior */
+            z-index: 1000; /* Asigna una prioridad alta para superponerse a otros elementos */
+        } /* Cierra los estilos del header */
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
+        nav { /* Selecciona el elemento de navegación interna */
+            max-width: 1200px; /* Limita el ancho máximo a 1200 píxeles */
+            margin: 0 auto; /* Centra horizontalmente el contenedor */
+            display: flex; /* Activa el modelo de diseño Flexbox */
+            justify-content: space-between; /* Distribuye el espacio sobrante entre los elementos */
+            align-items: center; /* Alinea los elementos verticalmente al centro */
+            padding: 1rem 2rem; /* Añade espacio interno vertical y horizontal */
+        } /* Cierra los estilos del nav */
 
-        /* Logotipo principal */
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--verde-patrio);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .logo { /* Clase para el texto del logotipo */
+            font-size: 1.4rem; /* Define el tamaño de letra del logo */
+            font-weight: 800; /* Aplica negrita extra gruesa */
+            color: var(--verde-patrio); /* Colorea el texto principal con el verde patrio */
+            text-transform: uppercase; /* Convierte todo el texto a mayúsculas */
+            letter-spacing: 1px; /* Añade espaciado entre letras */
+            display: flex; /* Activa flexbox para alinear el icono y el texto */
+            align-items: center; /* Alinea verticalmente los elementos internos */
+            gap: 10px; /* Espacio de 10 píxeles entre el bandera/icono y el texto */
+        } /* Cierra los estilos del logo */
 
-        .logo span {
-            color: var(--rojo-patrio);
-        }
+        .logo span { /* Selecciona la etiqueta span dentro del logo */
+            color: var(--rojo-patrio); /* Cambia el color del texto secundario a rojo */
+        } /* Cierra los estilos de span en el logo */
 
-        /* Enlaces del menú de navegación */
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
+        .nav-links { /* Clase para la lista de enlaces de navegación */
+            display: flex; /* Muestra los elementos de la lista en fila */
+            list-style: none; /* Elimina las viñetas por defecto de la lista */
+            gap: 1.5rem; /* Establece la distancia entre cada enlace */
+        } /* Cierra los estilos de nav-links */
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--texto-oscuro);
-            font-weight: 600;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
+        .nav-links a { /* Selecciona los enlaces dentro de la lista de navegación */
+            text-decoration: none; /* Quita el subrayado predeterminado de los enlaces */
+            color: var(--texto-oscuro); /* Define el color inicial del enlace */
+            font-weight: 600; /* Aplica grosor de fuente seminegrita */
+            transition: color 0.3s ease; /* Transición suave de 0.3 segundos para cambios de color */
+            font-size: 0.95rem; /* Establece el tamaño de texto de los enlaces */
+        } /* Cierra los estilos de los enlaces */
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--verde-patrio);
-        }
+        .nav-links a:hover, .nav-links a.active { /* Estilos cuando el mouse pasa sobre el enlace o cuando está activo */
+            color: var(--verde-patrio); /* Cambia el color a verde patrio en interacción o selección */
+        } /* Cierra el estado hover y active de enlaces */
 
-        /* Sección Hero (Portada principal) */
-        .hero {
-            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.95)),
-                        url('https://images.unsplash.com/photo-1568402102990-bc541580b59f?auto=format&fit=crop&q=80') center/cover;
-            padding: 5rem 2rem;
-            text-align: center;
-            border-bottom: 4px solid var(--verde-patrio);
-        }
+        .hero { /* Clase para el contenedor de la portada principal */
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1568402102990-bc541580b59f?auto=format&fit=crop&q=80') center/cover; /* Fondo con imagen y capa de superposición translúcida */
+            padding: 5rem 2rem; /* Espaciado interno generoso para la sección principal */
+            text-align: center; /* Centra horizontalmente todo el texto contenido */
+            border-bottom: 4px solid var(--verde-patrio); /* Añade borde inferior verde patrio */
+        } /* Cierra los estilos de la sección hero */
 
-        .hero-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .hero-container { /* Clase para envolver y limitar el ancho del texto hero */
+            max-width: 800px; /* Limita el ancho máximo del contenido a 800 píxeles */
+            margin: 0 auto; /* Centra la caja contenedora */
+        } /* Cierra los estilos de hero-container */
 
-        .hero h1 {
-            font-size: 2.8rem;
-            color: var(--verde-patrio);
-            margin-bottom: 1rem;
-        }
+        .hero h1 { /* Selecciona el título h1 dentro de la portada hero */
+            font-size: 2.8rem; /* Define un tamaño grande para el título principal */
+            color: var(--verde-patrio); /* Asigna el verde patrio al título principal */
+            margin-bottom: 1rem; /* Separa el título del párrafo siguiente */
+        } /* Cierra los estilos del h1 de la portada */
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--texto-suave);
-            margin-bottom: 2rem;
-        }
+        .hero p { /* Selecciona el párrafo dentro de la portada hero */
+            font-size: 1.2rem; /* Tamaño de fuente ligeramente más grande para destacar el resumen */
+            color: var(--texto-suave); /* Color gris suave para la descripción */
+            margin-bottom: 2rem; /* Espacio inferior antes del botón de acción */
+        } /* Cierra los estilos del párrafo hero */
 
-        /* Botón principal de acción */
-        .btn-accion {
-            display: inline-block;
-            background-color: var(--verde-patrio);
-            color: var(--blanco);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 104, 71, 0.3);
-            border: 2px solid var(--verde-patrio);
-        }
+        .btn-accion { /* Clase para botones destacados */
+            display: inline-block; /* Permite aplicar dimensiones y márgenes manteniendo flujo inline */
+            background-color: var(--verde-patrio); /* Fondo verde principal */
+            color: var(--blanco); /* Texto en color blanco */
+            padding: 0.8rem 2rem; /* Relleno vertical y horizontal */
+            border-radius: 50px; /* Bordes redondeados con forma de píldora */
+            text-decoration: none; /* Elimina el subrayado del texto */
+            font-weight: 700; /* Texto en negrita */
+            transition: all 0.3s ease; /* Transición suave para todos los efectos visuales */
+            box-shadow: 0 4px 10px rgba(0, 104, 71, 0.3); /* Sombra ligera verdosa */
+            border: 2px solid var(--verde-patrio); /* Borde verde coincidente */
+        } /* Cierra los estilos de btn-accion */
 
-        .btn-accion:hover {
-            background-color: var(--verde-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 104, 71, 0.4);
-        }
+        .btn-accion:hover { /* Efectos cuando el ratón pasa sobre el botón */
+            background-color: var(--verde-hover); /* Oscurece el tono del fondo verde */
+            transform: translateY(-2px); /* Eleva ligeramente el botón 2 píxeles */
+            box-shadow: 0 6px 15px rgba(0, 104, 71, 0.4); /* Intensifica la sombra inferior */
+        } /* Cierra el efecto hover del botón */
 
-        /* Secciones de contenido general */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        section { /* Estilos generales aplicables a todas las secciones del cuerpo */
+            padding: 4rem 2rem; /* Relleno superior/inferior de 4rem y lateral de 2rem */
+            max-width: 1200px; /* Ancho máximo de alineación de contenidos */
+            margin: 0 auto; /* Centra las secciones horizontalmente */
+        } /* Cierra estilos de sección */
 
-        /* Tarjetas de resumen del portal */
-        .grid-resumen {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+        .grid-resumen { /* Clase para la retícula de tarjetas de resumen */
+            display: grid; /* Activa la disposición tipo cuadrícula CSS Grid */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas adaptables automáticas con mínimo 280px */
+            gap: 2rem; /* Espacio de separación entre tarjetas de 2rem */
+            margin-top: 2rem; /* Espaciado superior respecto al texto introductorio */
+        } /* Cierra estilos de grid-resumen */
 
-        .card-resumen {
-            background: var(--blanco);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--sombra-suave);
-            text-align: center;
-            border-top: 4px solid var(--verde-patrio);
-        }
+        .card-resumen { /* Clase para cada tarjeta contenedora individual */
+            background: var(--blanco); /* Fondo de tarjeta en color blanco */
+            padding: 2rem; /* Relleno de espacio dentro de la tarjeta */
+            border-radius: 12px; /* Esquinas suavemente redondeadas a 12px */
+            box-shadow: var(--sombra-suave); /* Sombra perimetral suave */
+            text-align: center; /* Alinea los contenidos de la tarjeta al centro */
+            border-top: 4px solid var(--verde-patrio); /* Línea verde decorativa en el borde superior */
+        } /* Cierra los estilos de card-resumen */
 
-        .card-resumen h3 {
-            color: var(--verde-patrio);
-            margin-bottom: 1rem;
-        }
+        .card-resumen h3 { /* Selecciona el título dentro de la tarjeta */
+            color: var(--verde-patrio); /* Asigna color verde patrio al título de la tarjeta */
+            margin-bottom: 1rem; /* Separa el título del párrafo explicativo */
+        } /* Cierra estilos del título de tarjeta */
 
-        .card-resumen p {
-            color: var(--texto-suave);
-            margin-bottom: 1.5rem;
-        }
+        .card-resumen p { /* Selecciona el texto explicativo de la tarjeta */
+            color: var(--texto-suave); /* Utiliza color gris suave */
+            margin-bottom: 1.5rem; /* Separa el párrafo del botón de acción */
+        } /* Cierra estilos del párrafo de tarjeta */
 
-        /* Pie de página */
-        footer {
-            background-color: var(--blanco);
-            border-top: 1px solid #E0E0E0;
-            padding-top: 2rem;
-            margin-top: 4rem;
-        }
+        footer { /* Estilos para la sección de pie de página */
+            background-color: var(--blanco); /* Fondo blanco para el pie de página */
+            border-top: 1px solid #E0E0E0; /* Borde superior gris claro tenue */
+            padding-top: 2rem; /* Espaciado interno superior */
+            margin-top: 4rem; /* Separación superior con respecto a las secciones */
+        } /* Cierra estilos de footer */
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 2rem 2rem;
-            text-align: center;
-        }
+        .footer-content { /* Contenedor interno del texto del pie de página */
+            max-width: 1200px; /* Ancho máximo igual al resto de la página */
+            margin: 0 auto; /* Centra el contenido horizontalmente */
+            padding: 0 2rem 2rem 2rem; /* Relleno lateral e inferior */
+            text-align: center; /* Centra el texto del autor */
+        } /* Cierra footer-content */
 
-        .footer-content p {
-            color: var(--texto-suave);
-            font-size: 0.9rem;
-        }
+        .footer-content p { /* Estilo del texto legal/autor dentro del footer */
+            color: var(--texto-suave); /* Texto en color gris suave */
+            font-size: 0.9rem; /* Tamaño de letra ligeramente reducido */
+        } /* Cierra estilos del párrafo del footer */
 
-        /* Diseño responsivo para pantallas móviles */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Listón con los colores de la bandera de México -->
-    <div class="liston-patrio"></div>
+        @media (max-width: 768px) { /* Consulta de medios para pantallas menores a 768px */
+            .nav-links { /* Oculta la lista de menú convencional en móviles */
+                display: none; /* Esconde los enlaces del menú principal */
+            } /* Cierra ocultamiento de links */
+            .hero h1 { /* Reduce el tamaño del título de la portada en móviles */
+                font-size: 2rem; /* Define tamaño de 2rem para ajustarse mejor */
+            } /* Cierra reducción de título */
+        } /* Cierra la regla de media query */
+    </style> <!-- Cierra el bloque de estilos CSS -->
+</head> <!-- Cierra la etiqueta head -->
+<body> <!-- Inicia el cuerpo visible del documento HTML -->
+    <div class="liston-patrio"></div> <!-- Renderiza la franja superior tricolor decorativa -->
 
-    <!-- Menú de navegación principal -->
-    <header>
-        <nav>
-            <div class="logo">
-                🇲🇽 Septiembre <span>Patrio</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="linea_tiempo.html">Fechas Clave</a></li>
-                <li><a href="personajes.html">Personajes</a></li>
-                <li><a href="mitos.html">Mitos y Datos</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header> <!-- Inicio del bloque de cabecera superior fija -->
+        <nav> <!-- Contenedor del menú navegable -->
+            <div class="logo"> <!-- Contenedor del título o logotipo del sitio web -->
+                🇲🇽 Septiembre <span>Patrio</span> <!-- Icono de bandera y texto con énfasis rojo en "Patrio" -->
+            </div> <!-- Cierra el contenedor del logo -->
+            <ul class="nav-links"> <!-- Inicio de la lista desordenada de hipervínculos principales -->
+                <li><a href="index.html" class="active">Inicio</a></li> <!-- Enlace a Inicio con la clase activa asignada -->
+                <li><a href="linea_tiempo.html">Fechas Clave</a></li> <!-- Enlace que redirige a la línea de tiempo -->
+                <li><a href="personajes.html">Personajes</a></li> <!-- Enlace que dirige a la sección de personajes -->
+                <li><a href="mitos.html">Mitos y Datos</a></li> <!-- Enlace hacia la página de mitos y datos -->
+            </ul> <!-- Cierra la lista de hipervínculos -->
+        </nav> <!-- Cierra la barra de navegación -->
+    </header> <!-- Cierra el encabezado del sitio -->
 
-    <!-- Sección de Portada / Hero -->
-    <section class="hero">
-        <div class="hero-container">
-            <h1>Acontecimientos del Mes Patrio</h1>
-            <p>Descubre la historia, los héroes que nos dieron patria y los mitos más fascinantes de las festividades de septiembre en México.</p>
-            <a href="linea_tiempo.html" class="btn-accion">Explorar la Historia</a>
-        </div>
-    </section>
+    <section class="hero"> <!-- Inicia la sección principal de bienvenida (Hero) -->
+        <div class="hero-container"> <!-- Div que centra e impone ancho máximo al texto hero -->
+            <h1>Acontecimientos del Mes Patrio</h1> <!-- Título principal impreso en portada -->
+            <p>Descubre la historia, los héroes que nos dieron patria y los mitos más fascinantes de las festividades de septiembre en México.</p> <!-- Descripción introductoria principal -->
+            <a href="linea_tiempo.html" class="btn-accion">Explorar la Historia</a> <!-- Botón interactivo principal hacia la línea de tiempo -->
+        </div> <!-- Cierra el contenedor interno del hero -->
+    </section> <!-- Cierra la sección hero -->
 
-    <!-- Sección con accesos directos a las páginas del portal -->
-    <section>
-        <h2 style="text-align: center; font-size: 2rem; color: var(--texto-oscuro);">Explora el Contenido</h2>
-        <p style="text-align: center; color: var(--rojo-patrio); font-weight: 600; text-transform: uppercase; margin-bottom: 2rem;">Conoce las secciones del portal</p>
+    <section> <!-- Inicia la segunda sección con índice de opciones -->
+        <h2 style="text-align: center; font-size: 2rem; color: var(--texto-oscuro);">Explora el Contenido</h2> <!-- Encabezado secundario con estilos en línea -->
+        <p style="text-align: center; color: var(--rojo-patrio); font-weight: 600; text-transform: uppercase; margin-bottom: 2rem;">Conoce las secciones del portal</p> <!-- Subtítulo de la sección en color rojo patrio -->
         
-        <div class="grid-resumen">
-            <!-- Tarjeta hacia la línea de tiempo -->
-            <div class="card-resumen">
-                <h3>Fechas Clave</h3>
-                <p>Recorre la línea de tiempo histórica con los acontecimientos más trascendentes del mes.</p>
-                <a href="linea_tiempo.html" class="btn-accion">Ver Fechas</a>
-            </div>
-            <!-- Tarjeta hacia la página de personajes -->
-            <div class="card-resumen">
-                <h3>Personajes Ilustres</h3>
-                <p>Conoce los rostros y aportaciones de los hombres y mujeres que lucharon por la libertad.</p>
-                <a href="personajes.html" class="btn-accion">Ver Personajes</a>
-            </div>
-            <!-- Tarjeta hacia la página de mitos -->
-            <div class="card-resumen">
-                <h3>Mitos y Datos</h3>
-                <p>Aprende la verdad detrás de los mitos más populares de la Independencia de México.</p>
-                <a href="mitos.html" class="btn-accion">Ver Mitos</a>
-            </div>
-        </div>
-    </section>
+        <div class="grid-resumen"> <!-- Contenedor en cuadrícula para las tarjetas informativas -->
+            <div class="card-resumen"> <!-- Tarjeta individual sobre Fechas Clave -->
+                <h3>Fechas Clave</h3> <!-- Encabezado de la tarjeta 1 -->
+                <p>Recorre la línea de tiempo histórica con los acontecimientos más trascendentes del mes.</p> <!-- Descripción de tarjeta 1 -->
+                <a href="linea_tiempo.html" class="btn-accion">Ver Fechas</a> <!-- Botón directo a la línea de tiempo -->
+            </div> <!-- Cierra la tarjeta 1 -->
+            
+            <div class="card-resumen"> <!-- Tarjeta individual sobre Personajes Ilustres -->
+                <h3>Personajes Ilustres</h3> <!-- Encabezado de la tarjeta 2 -->
+                <p>Conoce los rostros y aportaciones de los hombres y mujeres que lucharon por la libertad.</p> <!-- Descripción de tarjeta 2 -->
+                <a href="personajes.html" class="btn-accion">Ver Personajes</a> <!-- Botón directo a personajes -->
+            </div> <!-- Cierra la tarjeta 2 -->
+            
+            <div class="card-resumen"> <!-- Tarjeta individual sobre Mitos y Datos -->
+                <h3>Mitos y Datos</h3> <!-- Encabezado de la tarjeta 3 -->
+                <p>Aprende la verdad detrás de los mitos más populares de la Independencia de México.</p> <!-- Descripción de tarjeta 3 -->
+                <a href="mitos.html" class="btn-accion">Ver Mitos</a> <!-- Botón directo a mitos -->
+            </div> <!-- Cierra la tarjeta 3 -->
+        </div> <!-- Cierra el contenedor de la cuadrícula -->
+    </section> <!-- Cierra la sección principal -->
 
-    <!-- Pie de página con créditos del autor -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p>
-        </div>
-        <div class="liston-patrio"></div>
-    </footer>
-</body>
-</html>
+    <footer> <!-- Abre la sección de pie de página -->
+        <div class="footer-content"> <!-- Contenedor para alinear texto en el footer -->
+            <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p> <!-- Nombre y derechos de autor del estudiante -->
+        </div> <!-- Cierra el contenedor de texto del footer -->
+        <div class="liston-patrio"></div> <!-- Franja decorativa inferior con los tres colores patrios -->
+    </footer> <!-- Cierra la etiqueta de pie de página -->
+</body> <!-- Cierra la etiqueta del cuerpo del documento -->
+</html> <!-- Cierra la etiqueta raíz de todo el código HTML -->
