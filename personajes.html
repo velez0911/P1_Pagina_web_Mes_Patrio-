@@ -1,317 +1,298 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <!-- Configuración inicial del documento -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personajes Ilustres - Acontecimientos del Mes Patrio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<!DOCTYPE html> <!-- Declara el tipo de documento HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML configurando el idioma en español -->
+<head> <!-- Abre la sección de metadatos y cabecera del documento -->
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta el ancho para ser adaptable a móviles -->
+    <title>Personajes Ilustres - Acontecimientos del Mes Patrio</title> <!-- Define el título de la pestaña del navegador -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> <!-- Carga las tipografías Montserrat y Open Sans desde Google Fonts -->
     
-    <style>
-        /* Paleta de colores patrios mediante variables */
-        :root {
-            --verde-patrio: #006847;
-            --verde-hover: #004d34;
-            --rojo-patrio: #CE1126;
-            --rojo-hover: #a30d1e;
-            --blanco: #FFFFFF;
-            --gris-fondo: #F8F9FA;
-            --texto-oscuro: #2B2B2B;
-            --texto-suave: #666666;
-            --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08);
-            --sombra-fuerte: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
+    <style> /* Inicio del bloque de hoja de estilos interna */
+        :root { /* Declaración de variables globales del documento */
+            --verde-patrio: #006847; /* Asigna el valor hexadecimal del verde oficial */
+            --verde-hover: #004d34; /* Variante oscura del verde para efectos al pasar el ratón */
+            --rojo-patrio: #CE1126; /* Asigna el valor hexadecimal del rojo oficial */
+            --rojo-hover: #a30d1e; /* Variante oscura del rojo para efectos al pasar el ratón */
+            --blanco: #FFFFFF; /* Código de color blanco puro */
+            --gris-fondo: #F8F9FA; /* Tono de gris claro usado como fondo general */
+            --texto-oscuro: #2B2B2B; /* Color oscuro para el cuerpo del texto */
+            --texto-suave: #666666; /* Color gris secundario para descripciones */
+            --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra difuminada tenue */
+            --sombra-fuerte: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra acentuada para interacción */
+        } /* Cierra el bloque de variables :root */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { /* Selector universal para resetear propiedades */
+            margin: 0; /* Quita todos los márgenes */
+            padding: 0; /* Quita todo el relleno */
+            box-sizing: border-box; /* Incluye rellenos y bordes dentro del tamaño calculado del objeto */
+        } /* Cierra reseteo de estilos */
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--gris-fondo);
-            color: var(--texto-oscuro);
-            line-height: 1.6;
-        }
+        body { /* Estilos generales aplicados al cuerpo entero */
+            font-family: 'Open Sans', sans-serif; /* Asigna la fuente sans-serif Open Sans */
+            background-color: var(--gris-fondo); /* Aplica el color gris suave al fondo */
+            color: var(--texto-oscuro); /* Asigna el color predeterminado al texto */
+            line-height: 1.6; /* Establece la altura proporcional entre líneas */
+        } /* Cierra los estilos del body */
 
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
+        h1, h2, h3 { /* Selector para títulos de nivel 1 a 3 */
+            font-family: 'Montserrat', sans-serif; /* Aplica la fuente tipográfica Montserrat */
+            font-weight: 700; /* Define el peso de la letra en negrita (700) */
+        } /* Cierra estilos de títulos */
 
-        /* Listón tricolor */
-        .liston-patrio {
-            height: 6px;
-            width: 100%;
-            background: linear-gradient(90deg, var(--verde-patrio) 33.3%, var(--blanco) 33.3%, var(--blanco) 66.6%, var(--rojo-patrio) 66.6%);
-        }
+        .liston-patrio { /* Clase de adorno superior e inferior tricolor */
+            height: 6px; /* Define una altura del listón de 6px */
+            width: 100%; /* Cubre el 100% de la anchura */
+            background: linear-gradient(90deg, var(--verde-patrio) 33.3%, var(--blanco) 33.3%, var(--blanco) 66.6%, var(--rojo-patrio) 66.6%); /* Crea el patrón con los tres colores patrios */
+        } /* Cierra la clase liston-patrio */
 
-        /* Encabezado fijo */
-        header {
-            background-color: var(--blanco);
-            box-shadow: var(--sombra-suave);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        header { /* Configuración de la cabecera superior */
+            background-color: var(--blanco); /* Establece un fondo blanco limpio */
+            box-shadow: var(--sombra-suave); /* Proyecta una sombra suave inferior */
+            position: sticky; /* Mantiene la barra fija durante el desplazamiento */
+            top: 0; /* Lo adhiere exactamente al borde superior */
+            z-index: 1000; /* Mantiene el encabezado por encima de otros elementos de la página */
+        } /* Cierra header */
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
+        nav { /* Disposición de la barra navegable */
+            max-width: 1200px; /* Limita el ancho del contenedor a 1200px */
+            margin: 0 auto; /* Centra horizontalmente la barra nav */
+            display: flex; /* Activa la estructura flexbox */
+            justify-content: space-between; /* Distribuye el espacio sobrante horizontalmente */
+            align-items: center; /* Alinea los ítems verticalmente al centro */
+            padding: 1rem 2rem; /* Relleno superior/inferior de 1rem y de 2rem a los costados */
+        } /* Cierra nav */
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--verde-patrio);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .logo { /* Formato del logo de la web */
+            font-size: 1.4rem; /* Tamaño de fuente para la marca */
+            font-weight: 800; /* Grosor de letra extra negrita */
+            color: var(--verde-patrio); /* Asigna el color verde patrio al texto */
+            text-transform: uppercase; /* Transforma el texto en letras mayúsculas */
+            letter-spacing: 1px; /* Añade espaciado entre letras */
+            display: flex; /* Flexbox para la organización del logo e ícono */
+            align-items: center; /* Centrado vertical de la bandera y texto */
+            gap: 10px; /* Espaciado interno de 10px entre elementos del logo */
+        } /* Cierra estilo del logo */
 
-        .logo span { color: var(--rojo-patrio); }
+        .logo span { color: var(--rojo-patrio); } /* Asigna el color rojo al fragmento "Patrio" */
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
+        .nav-links { /* Formato de la lista del menú de navegación */
+            display: flex; /* Organiza la lista en orientación de fila */
+            list-style: none; /* Quita los puntos indicadores de lista */
+            gap: 1.5rem; /* Establece una separación de 1.5rem entre ítems */
+        } /* Cierra nav-links */
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--texto-oscuro);
-            font-weight: 600;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
+        .nav-links a { /* Estilos para los botones o enlaces de navegación */
+            text-decoration: none; /* Elimina la línea por debajo del texto */
+            color: var(--texto-oscuro); /* Asigna el color de texto gris oscuro */
+            font-weight: 600; /* Asigna un peso tipográfico seminegrita */
+            transition: color 0.3s ease; /* Transición suave de cambio de color al interactuar */
+            font-size: 0.95rem; /* Define el tamaño de letra de los hipervínculos */
+        } /* Cierra nav-links a */
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--verde-patrio);
-        }
+        .nav-links a:hover, .nav-links a.active { /* Estado interactivo u opción activa seleccionada */
+            color: var(--verde-patrio); /* Cambia el color del texto a verde */
+        } /* Cierra estados del menú */
 
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        section { /* Estilos base para la sección principal de la página */
+            padding: 4rem 2rem; /* Relleno superior e inferior de 4rem y lateral de 2rem */
+            max-width: 1200px; /* Ancho máximo de alineación */
+            margin: 0 auto; /* Centrado de la sección */
+        } /* Cierra section */
 
-        .titulo-seccion {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--texto-oscuro);
-        }
+        .titulo-seccion { /* Formato para el título de la sección */
+            text-align: center; /* Alinea el título al centro */
+            font-size: 2.2rem; /* Tamaño de texto de 2.2rem */
+            margin-bottom: 0.5rem; /* Espaciado inferior de 0.5rem */
+            color: var(--texto-oscuro); /* Color principal oscuro */
+        } /* Cierra titulo-seccion */
 
-        .subtitulo-seccion {
-            text-align: center;
-            color: var(--rojo-patrio);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-bottom: 3rem;
-        }
+        .subtitulo-seccion { /* Formato para el subtítulo decorativo */
+            text-align: center; /* Centra el subtítulo */
+            color: var(--rojo-patrio); /* Asigna el color rojo patrio */
+            font-weight: 600; /* Grosor seminegrita */
+            text-transform: uppercase; /* Fuerza letras mayúsculas */
+            letter-spacing: 2px; /* Añade espaciado de 2px entre letras */
+            font-size: 0.9rem; /* Tamaño de fuente contenido */
+            margin-bottom: 3rem; /* Margen inferior de 3rem */
+        } /* Cierra subtitulo-seccion */
 
-        /* Rejilla responsiva para mostrar las tarjetas de personajes */
-        .grid-personajes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+        .grid-personajes { /* Rejilla o cuadrícula para las tarjetas de personajes */
+            display: grid; /* Activa el modelo CSS Grid */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Creación automática de columnas de al menos 280px */
+            gap: 2rem; /* Separación de 2rem entre tarjetas */
+        } /* Cierra grid-personajes */
 
-        /* Tarjeta individual de personaje */
-        .card-personaje {
-            background-color: var(--blanco);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--sombra-suave);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-bottom: 4px solid var(--rojo-patrio);
-            text-align: center;
-            padding: 2rem 1.5rem;
-        }
+        .card-personaje { /* Formato para cada tarjeta individual de personaje */
+            background-color: var(--blanco); /* Fondo de la tarjeta en color blanco */
+            border-radius: 12px; /* Bordes redondeados con radio de 12px */
+            overflow: hidden; /* Corta cualquier elemento que sobresalga de la tarjeta */
+            box-shadow: var(--sombra-suave); /* Sombreado periférico ligero */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave al pasar el ratón */
+            border-bottom: 4px solid var(--rojo-patrio); /* Acento de borde inferior en color rojo */
+            text-align: center; /* Centra el texto de la tarjeta */
+            padding: 2rem 1.5rem; /* Relleno interno superior/inferior y lateral */
+        } /* Cierra card-personaje */
 
-        /* Efecto hover al pasar el ratón */
-        .card-personaje:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--sombra-fuerte);
-        }
+        .card-personaje:hover { /* Efecto al situar el ratón encima de la tarjeta */
+            transform: translateY(-8px); /* Desplaza la tarjeta 8px hacia arriba */
+            box-shadow: var(--sombra-fuerte); /* Muestra una sombra más intensa */
+        } /* Cierra card-personaje:hover */
 
-        /* Estilo para los avatares circulares */
-        .avatar-container {
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 1.5rem auto;
-            border-radius: 50%;
-            border: 4px solid var(--verde-patrio);
-            padding: 4px;
-            background-color: var(--blanco);
-        }
+        .avatar-container { /* Contenedor exterior del avatar circular */
+            width: 110px; /* Ancho del contenedor circular */
+            height: 110px; /* Alto del contenedor circular */
+            margin: 0 auto 1.5rem auto; /* Centra el avatar y añade espacio inferior de 1.5rem */
+            border-radius: 50%; /* Hace el contenedor perfectamente circular */
+            border: 4px solid var(--verde-patrio); /* Borde perimetral en verde patrio */
+            padding: 4px; /* Espaciado entre el borde y la figura interior */
+            background-color: var(--blanco); /* Fondo blanco interno */
+        } /* Cierra avatar-container */
 
-        .avatar-placeholder {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: var(--gris-fondo);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            color: var(--verde-patrio);
-            font-weight: bold;
-        }
+        .avatar-placeholder { /* Círculo con iniciales dentro del avatar */
+            width: 100%; /* Ocupa el 100% de la anchura del contenedor */
+            height: 100%; /* Ocupa el 100% de la altura del contenedor */
+            border-radius: 50%; /* Mantén forma circular */
+            background-color: var(--gris-fondo); /* Fondo en color gris claro */
+            display: flex; /* Flexbox para centrar el texto de las iniciales */
+            align-items: center; /* Centrado vertical de las iniciales */
+            justify-content: center; /* Centrado horizontal de las iniciales */
+            font-size: 2.2rem; /* Tamaño de fuente grande para las iniciales */
+            color: var(--verde-patrio); /* Color verde para las iniciales del personaje */
+            font-weight: bold; /* Texto en formato negrita */
+        } /* Cierra avatar-placeholder */
 
-        .card-personaje h3 {
-            color: var(--texto-oscuro);
-            font-size: 1.25rem;
-            margin-bottom: 0.3rem;
-        }
+        .card-personaje h3 { /* Estilo del nombre del personaje */
+            color: var(--texto-oscuro); /* Color principal oscuro */
+            font-size: 1.25rem; /* Tamaño de tipografía de 1.25rem */
+            margin-bottom: 0.3rem; /* Espaciado inferior ligero */
+        } /* Cierra nombre del personaje */
 
-        .card-personaje .rol {
-            color: var(--rojo-patrio);
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
+        .card-personaje .rol { /* Estilo para el título o rol histórico */
+            color: var(--rojo-patrio); /* Color rojo patrio distintivo */
+            font-weight: 600; /* Peso de fuente seminegrita */
+            font-size: 0.85rem; /* Tamaño tipográfico pequeño */
+            margin-bottom: 1rem; /* Margen inferior de 1rem */
+            text-transform: uppercase; /* Transformación a texto en mayúsculas */
+        } /* Cierra rol */
 
-        .card-personaje p {
-            font-size: 0.95rem;
-            color: var(--texto-suave);
-        }
+        .card-personaje p { /* Estilo de la biografía o resumen */
+            font-size: 0.95rem; /* Tamaño de texto de 0.95rem */
+            color: var(--texto-suave); /* Color gris suave */
+        } /* Cierra biografía */
 
-        /* Navegación entre páginas */
-        .nav-paginacion {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 3rem;
-        }
+        .nav-paginacion { /* Formato del contenedor de paginación entre archivos */
+            display: flex; /* Organización flexbox horizontal */
+            justify-content: space-between; /* Un botón en cada extremo */
+            margin-top: 3rem; /* Margen superior de 3rem */
+        } /* Cierra nav-paginacion */
 
-        .btn-pag {
-            background-color: var(--verde-patrio);
-            color: var(--blanco);
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background 0.3s;
-        }
+        .btn-pag { /* Estilos para los botones de cambio de página */
+            background-color: var(--verde-patrio); /* Fondo en verde patrio */
+            color: var(--blanco); /* Texto en color blanco */
+            padding: 0.8rem 1.5rem; /* Relleno interior */
+            border-radius: 30px; /* Bordes ovalados tipo píldora */
+            text-decoration: none; /* Elimina la línea del enlace */
+            font-weight: 700; /* Texto en negrita */
+            transition: background 0.3s; /* Transición fluida de color de fondo */
+        } /* Cierra btn-pag */
 
-        .btn-pag:hover {
-            background-color: var(--verde-hover);
-        }
+        .btn-pag:hover { /* Cambio de fondo en estado hover del botón de paginación */
+            background-color: var(--verde-hover); /* Cambia al verde patrio oscuro */
+        } /* Cierra hover btn-pag */
 
-        /* Footer */
-        footer {
-            background-color: var(--blanco);
-            border-top: 1px solid #E0E0E0;
-            padding-top: 2rem;
-            margin-top: 4rem;
-        }
+        footer { /* Estilos del área de pie de página */
+            background-color: var(--blanco); /* Fondo en blanco */
+            border-top: 1px solid #E0E0E0; /* Línea divisoria gris clara */
+            padding-top: 2rem; /* Relleno superior de 2rem */
+            margin-top: 4rem; /* Separación superior respecto al contenido */
+        } /* Cierra footer */
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 2rem 2rem;
-            text-align: center;
-        }
+        .footer-content { /* Contenedor del texto de autor en el footer */
+            max-width: 1200px; /* Ancho máximo estándar */
+            margin: 0 auto; /* Centrado horizontal del contenido */
+            padding: 0 2rem 2rem 2rem; /* Relleno lateral e inferior */
+            text-align: center; /* Texto centrado */
+        } /* Cierra footer-content */
 
-        .footer-content p {
-            color: var(--texto-suave);
-            font-size: 0.9rem;
-        }
+        .footer-content p { /* Estilo del texto copyright */
+            color: var(--texto-suave); /* Texto en gris atenuado */
+            font-size: 0.9rem; /* Tamaño de fuente de 0.9rem */
+        } /* Cierra párrafo footer */
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-        }
-    </style>
-</head>
-<body>
-    <!-- Listón decorativo -->
-    <div class="liston-patrio"></div>
+        @media (max-width: 768px) { /* Diseño responsivo para pantallas móviles */
+            .nav-links { display: none; } /* Oculta los enlaces de navegación directa en smartphones */
+        } /* Cierra regla de media query */
+    </style> <!-- Cierra la sección de hoja de estilo -->
+</head> <!-- Cierra el encabezado del documento -->
+<body> <!-- Inicia el cuerpo con los componentes visuales -->
+    <div class="liston-patrio"></div> <!-- Barra tricolor decorativa superior -->
 
-    <!-- Menú de la página -->
-    <header>
-        <nav>
-            <div class="logo">
-                🇲🇽 Septiembre <span>Patrio</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="linea_tiempo.html">Fechas Clave</a></li>
-                <li><a href="personajes.html" class="active">Personajes</a></li>
-                <li><a href="mitos.html">Mitos y Datos</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header> <!-- Barra superior fija -->
+        <nav> <!-- Estructura del menú navegable -->
+            <div class="logo"> <!-- Logo principal -->
+                🇲🇽 Septiembre <span>Patrio</span> <!-- Texto del logotipo con acento rojo en span -->
+            </div> <!-- Cierra div logo -->
+            <ul class="nav-links"> <!-- Menú de hipervínculos principales -->
+                <li><a href="index.html">Inicio</a></li> <!-- Enlace que redirige a Inicio -->
+                <li><a href="linea_tiempo.html">Fechas Clave</a></li> <!-- Enlace a la línea de tiempo -->
+                <li><a href="personajes.html" class="active">Personajes</a></li> <!-- Enlace activo de la sección personajes -->
+                <li><a href="mitos.html">Mitos y Datos</a></li> <!-- Enlace hacia la sección de mitos -->
+            </ul> <!-- Cierra lista de menú -->
+        </nav> <!-- Cierra barra de navegación -->
+    </header> <!-- Cierra la etiqueta header -->
 
-    <!-- Sección de Héroes y Personajes de la Independencia -->
-    <section id="personajes">
-        <h2 class="titulo-seccion">Personajes Ilustres</h2>
-        <p class="subtitulo-seccion">Los rostros de la Independencia</p>
+    <section id="personajes"> <!-- Sección contenedora de las tarjetas de héroes insurgentes -->
+        <h2 class="titulo-seccion">Personajes Ilustres</h2> <!-- Título principal de la página de personajes -->
+        <p class="subtitulo-seccion">Los rostros de la Independencia</p> <!-- Subtítulo explicativo -->
 
-        <div class="grid-personajes">
-            <!-- Personaje 1: Miguel Hidalgo -->
-            <div class="card-personaje">
-                <div class="avatar-container">
-                    <div class="avatar-placeholder">MH</div>
-                </div>
-                <h3>Miguel Hidalgo y Costilla</h3>
-                <div class="rol">Padre de la Patria</div>
-                <p>Sacerdote y revolucionario que inició el movimiento independentista aboliendo la esclavitud en sus primeros decretos.</p>
-            </div>
+        <div class="grid-personajes"> <!-- Cuadrícula contenedora de los 4 personajes -->
+            <div class="card-personaje"> <!-- Tarjeta individual para Miguel Hidalgo -->
+                <div class="avatar-container"> <!-- Div circular del contenedor del avatar -->
+                    <div class="avatar-placeholder">MH</div> <!-- Iniciales "MH" representativas del personaje -->
+                </div> <!-- Cierra contenedor del avatar -->
+                <h3>Miguel Hidalgo y Costilla</h3> <!-- Nombre completo del personaje -->
+                <div class="rol">Padre de la Patria</div> <!-- Título honorífico o rol -->
+                <p>Sacerdote y revolucionario que inició el movimiento independentista aboliendo la esclavitud en sus primeros decretos.</p> <!-- Resumen de aportes históricos -->
+            </div> <!-- Cierra tarjeta de Miguel Hidalgo -->
 
-            <!-- Personaje 2: Josefa Ortiz -->
-            <div class="card-personaje">
-                <div class="avatar-container">
-                    <div class="avatar-placeholder">JO</div>
-                </div>
-                <h3>Josefa Ortiz de Domínguez</h3>
-                <div class="rol">La Corregidora</div>
-                <p>Pieza clave en la Conspiración de Querétaro. Alertó a los insurgentes de que la conspiración había sido descubierta.</p>
-            </div>
+            <div class="card-personaje"> <!-- Tarjeta individual para Josefa Ortiz -->
+                <div class="avatar-container"> <!-- Div del avatar circular -->
+                    <div class="avatar-placeholder">JO</div> <!-- Iniciales "JO" del personaje -->
+                </div> <!-- Cierra avatar -->
+                <h3>Josefa Ortiz de Domínguez</h3> <!-- Nombre del personaje histórico -->
+                <div class="rol">La Corregidora</div> <!-- Rol o apodo histórico -->
+                <p>Pieza clave en la Conspiración de Querétaro. Alertó a los insurgentes de que la conspiración había sido descubierta.</p> <!-- Resumen de la aportación histórica -->
+            </div> <!-- Cierra tarjeta de Josefa Ortiz -->
 
-            <!-- Personaje 3: José María Morelos -->
-            <div class="card-personaje">
-                <div class="avatar-container">
-                    <div class="avatar-placeholder">JM</div>
-                </div>
-                <h3>José María Morelos</h3>
-                <div class="rol">El Siervo de la Nación</div>
-                <p>Genio militar que organizó la segunda etapa de la lucha y sentó las bases del primer Estado mexicano con división de poderes.</p>
-            </div>
+            <div class="card-personaje"> <!-- Tarjeta individual para José María Morelos -->
+                <div class="avatar-container"> <!-- Div del avatar circular -->
+                    <div class="avatar-placeholder">JM</div> <!-- Iniciales "JM" representativas -->
+                </div> <!-- Cierra avatar -->
+                <h3>José María Morelos</h3> <!-- Nombre del prócer insurgente -->
+                <div class="rol">El Siervo de la Nación</div> <!-- Rol o título histórico -->
+                <p>Genio militar que organizó la segunda etapa de la lucha y sentó las bases del primer Estado mexicano con división de poderes.</p> <!-- Resumen de participación histórica -->
+            </div> <!-- Cierra tarjeta de José María Morelos -->
 
-            <!-- Personaje 4: Vicente Guerrero -->
-            <div class="card-personaje">
-                <div class="avatar-container">
-                    <div class="avatar-placeholder">VG</div>
-                </div>
-                <h3>Vicente Guerrero</h3>
-                <div class="rol">Consumador de la Patria</div>
-                <p>Líder insurgente del sur que mantuvo viva la llama de la resistencia. Inmortal por su frase: <em>"La patria es primero"</em>.</p>
-            </div>
-        </div>
+            <div class="card-personaje"> <!-- Tarjeta individual para Vicente Guerrero -->
+                <div class="avatar-container"> <!-- Div del avatar circular -->
+                    <div class="avatar-placeholder">VG</div> <!-- Iniciales "VG" de Vicente Guerrero -->
+                </div> <!-- Cierra avatar -->
+                <h3>Vicente Guerrero</h3> <!-- Nombre del caudillo insurgente -->
+                <div class="rol">Consumador de la Patria</div> <!-- Rol histórico -->
+                <p>Líder insurgente del sur que mantuvo viva la llama de la resistencia. Inmortal por su frase: <em>"La patria es primero"</em>.</p> <!-- Resumen biográfico con frase celebre -->
+            </div> <!-- Cierra tarjeta de Vicente Guerrero -->
+        </div> <!-- Cierra la cuadrícula de personajes -->
 
-        <!-- Botones de paginación para avanzar/retroceder -->
-        <div class="nav-paginacion">
-            <a href="linea_tiempo.html" class="btn-pag">← Fechas Clave</a>
-            <a href="mitos.html" class="btn-pag">Ver Mitos →</a>
-        </div>
-    </section>
+        <div class="nav-paginacion"> <!-- Botones de paginación o navegación entre archivos -->
+            <a href="linea_tiempo.html" class="btn-pag">← Fechas Clave</a> <!-- Enlace a la página anterior -->
+            <a href="mitos.html" class="btn-pag">Ver Mitos →</a> <!-- Enlace a la página siguiente -->
+        </div> <!-- Cierra contenedor de paginación -->
+    </section> <!-- Cierra la sección principal -->
 
-    <!-- Pie de página -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p>
-        </div>
-        <div class="liston-patrio"></div>
-    </footer>
-</body>
-</html>
+    <footer> <!-- Pie de página principal -->
+        <div class="footer-content"> <!-- Contenedor centrado para los derechos del autor -->
+            <p>&copy; VELEZ CASAS DANIEL RICARDO 5°J 0911.</p> <!-- Texto con derechos de autor del estudiante -->
+        </div> <!-- Cierra footer-content -->
+        <div class="liston-patrio"></div> <!-- Franja tricolor decorativa al pie -->
+    </footer> <!-- Cierra la etiqueta footer -->
+</body> <!-- Cierra la etiqueta body -->
+</html> <!-- Cierra el documento HTML -->
